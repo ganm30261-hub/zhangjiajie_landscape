@@ -2,11 +2,10 @@ import React, { createContext, useContext, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronDown,
-  Compass,
+  BadgeCheck,
   Clock,
-  MapPinOff,
+  Users2,
   Car,
-  Users,
   Hotel,
   UtensilsCrossed,
   ShieldCheck,
@@ -18,17 +17,19 @@ import {
 } from "lucide-react";
 
 /**
- * HIDDEN TRAILS · 隐山小径 — Landing Page (bilingual EN / 中文)
+ * QUARTZ PEAKS · 石峰之旅 — Landing Page (bilingual EN / 中文)
  * Single-file React component. Fonts loaded via Google Fonts <link> in index.html:
  *   Playfair Display + Inter (Latin), Noto Serif SC + Noto Sans SC (Chinese).
- * Photography: real, publicly published Zhangjiajie images from Wikimedia Commons,
- * all released under CC BY 2.0 / CC BY-SA 2.5 — see PHOTOS below for credit + source.
- * Each image renders with a small on-image attribution caption; keep it on production use.
+ * Photography: real, publicly published Zhangjiajie images of the actual itinerary
+ * stops (Zhangjiajie National Forest Park, Tianmen Mountain, Wulingyuan / Tianzi
+ * Mountain, the Grand Canyon Glass Bridge, Huanglong Cave), sourced from Wikimedia
+ * Commons under CC BY 2.0 / CC BY-SA / public domain — see PHOTOS below for credit.
+ * Each image renders with a small on-image attribution caption; keep it in production.
  * Content marked [FAQ_ANSWER — ...] is a placeholder and must be supplied by the client.
  */
 
 // ---------------------------------------------------------------------------
-// Photography — real, publicly licensed Zhangjiajie photographs (Wikimedia Commons)
+// Photography — real, publicly licensed photographs of the actual itinerary stops
 // ---------------------------------------------------------------------------
 const PHOTOS = {
   hero: {
@@ -36,38 +37,43 @@ const PHOTOS = {
     credit: "xiquinhosilva",
     license: "CC BY 2.0",
     source: "https://commons.wikimedia.org/wiki/File:38197-Zhangjiajie_(49047512127).jpg",
-    alt: "Sandstone pillar peaks of the Wulingyuan Scenic Area, Zhangjiajie",
+    alt: "Quartzite sandstone peaks of Zhangjiajie National Forest Park",
   },
-  trail1: {
+  forestPark: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie_National_Forest_Park_37829-Zhangjiajie_(48757250168).jpg?width=1400",
     credit: "xiquinhosilva",
     license: "CC BY 2.0",
     source:
       "https://commons.wikimedia.org/wiki/File:Zhangjiajie_National_Forest_Park_37829-Zhangjiajie_(48757250168).jpg",
-    alt: "Forested trail within Zhangjiajie National Forest Park",
+    alt: "Zhangjiajie National Forest Park",
   },
-  trail2: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Yangjiajie.jpg?width=1400",
-    credit: "Yoo Chung",
-    license: "CC BY-SA 2.5",
-    source: "https://commons.wikimedia.org/wiki/File:Yangjiajie.jpg",
-    alt: "Yangjiajie scenic overlook, Zhangjiajie",
-  },
-  trail3: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie_National_Forest_Park_38080-Zhangjiajie_(48757768532).jpg?width=1400",
+  tianmen: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianmen_38330-Zhangjiajie_(49047525877).jpg?width=1400",
     credit: "xiquinhosilva",
     license: "CC BY 2.0",
-    source:
-      "https://commons.wikimedia.org/wiki/File:Zhangjiajie_National_Forest_Park_38080-Zhangjiajie_(48757768532).jpg",
-    alt: "Mountain ridge terrain in Zhangjiajie National Forest Park",
+    source: "https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg",
+    alt: "Tianmen Cave, Tianmen Mountain National Forest Park",
   },
-  trail4: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Yellow_Stone_Village_37946-Zhangjiajie_(49047320541).jpg?width=1400",
-    credit: "xiquinhosilva",
-    license: "CC BY 2.0",
-    source:
-      "https://commons.wikimedia.org/wiki/File:Yellow_Stone_Village_37946-Zhangjiajie_(49047320541).jpg",
-    alt: "Cliffs and peaks at Yellow Stone Village, Zhangjiajie",
+  tianzi: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?width=1400",
+    credit: "Chensiyuan",
+    license: "CC BY-SA 4.0",
+    source: "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
+    alt: "Panoramic view from Tianzi Mountain, Wulingyuan Scenic Area",
+  },
+  glassBridge: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie_Glass_Bridge_20190726.jpg?width=1400",
+    credit: "Sunyiming",
+    license: "CC BY-SA 4.0",
+    source: "https://commons.wikimedia.org/wiki/File:Zhangjiajie_Glass_Bridge_20190726.jpg",
+    alt: "Zhangjiajie Grand Canyon Glass Bridge",
+  },
+  huanglong: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Huanglongdong.JPG?width=1400",
+    credit: "Brookqi",
+    license: "Public Domain",
+    source: "https://commons.wikimedia.org/wiki/File:Huanglongdong.JPG",
+    alt: "Huanglong Cave (Yellow Dragon Cave), Zhangjiajie",
   },
 };
 
@@ -169,7 +175,7 @@ function Navbar() {
           className="text-[#F9F9F9] tracking-[0.15em] text-sm md:text-base uppercase whitespace-nowrap"
           style={{ fontFamily: serifFont(lang) }}
         >
-          Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
+          Quartz Peaks <span className="text-stone-500 text-xs align-middle">· 石峰之旅</span>
         </span>
         <div className="flex items-center gap-6">
           <LangToggle />
@@ -204,7 +210,7 @@ function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="text-[#C5A059] text-xs md:text-sm tracking-[0.3em] uppercase mb-6"
         >
-          <T en="A Private 4-Day Passage" zh="专属四日秘境之旅" />
+          <T en="A Private 4-Day Journey" zh="专属四日行程" />
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -213,7 +219,7 @@ function Hero() {
           className="text-[#F9F9F9] text-4xl md:text-6xl lg:text-7xl leading-tight max-w-4xl"
           style={{ fontFamily: serifFont(lang) }}
         >
-          <T en="Where the Map Ends, the Journey Begins" zh="地图尽头，旅程开始" />
+          <T en="A Private Journey Through Zhangjiajie" zh="张家界，私享之旅" />
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -222,8 +228,8 @@ function Hero() {
           className="text-stone-300 text-base md:text-lg mt-6 tracking-wide max-w-2xl leading-[1.7]"
         >
           <T
-            en="A private 4-day passage into Zhangjiajie's hidden trails — guided by those who call these mountains home."
-            zh="为期四天的私人张家界秘境之旅——由世代居于此山的向导，带您走入无人问津的秘径。"
+            en="Four days across Zhangjiajie's national parks and UNESCO scenery — Tianmen Mountain, Wulingyuan's stone forest, and the Grand Canyon glass bridge — with a licensed guide and a pace built around your family."
+            zh="四天时间，穿越张家界国家森林公园、天门山、武陵源石林与大峡谷玻璃桥——专业持证向导全程陪同，行程节奏为您的家庭量身定制。"
           />
         </motion.p>
       </div>
@@ -259,15 +265,15 @@ function Philosophy() {
           style={{ fontFamily: serifFont(lang) }}
         >
           <T
-            en="Most travelers see Zhangjiajie through a viewfinder, shoulder to shoulder with a thousand others. We take you somewhere else entirely — along paths our guides have walked since childhood, to places that exist on no map and in no tour brochure."
-            zh="大多数游客只是隔着取景框、挤在人群中看张家界。而我们带您去往截然不同的地方——沿着向导自幼走过的山路，抵达地图与旅行手册上都未曾标注的秘境。"
+            en="Zhangjiajie's peaks, canyons, and caves are best experienced without the friction of a fixed group schedule. We plan each day around your family's pace, with a licensed guide and private transport throughout."
+            zh="张家界的奇峰、峡谷与溶洞，最适合以从容的节奏去体验，而非被固定的团队行程推着走。我们按照您家庭的节奏安排每一天，全程配备持证向导与私人用车。"
           />
         </p>
         <p
           className="text-xl md:text-2xl lg:text-3xl text-[#111111] leading-snug mt-6"
           style={{ fontFamily: serifFont(lang) }}
         >
-          <T en="This is not sightseeing. This is discovery." zh="这不是观光，这是探索。" />
+          <T en="A private way to see all of it." zh="以私人定制的方式，尽览这一切。" />
         </p>
       </motion.div>
     </section>
@@ -275,39 +281,50 @@ function Philosophy() {
 }
 
 // ---------------------------------------------------------------------------
-// 4. The Journey — alternating image/text blocks
+// 4. The Journey — the real itinerary, alternating image/text blocks
 // ---------------------------------------------------------------------------
 const journeyStops = [
   {
-    photo: PHOTOS.trail1,
-    title: { en: "The First Trail", zh: "第一段秘径" },
+    photo: PHOTOS.forestPark,
+    title: { en: "Zhangjiajie National Forest Park", zh: "张家界国家森林公园" },
     copy: {
-      en: "Before dawn, before the crowds, we begin where the forest still keeps its secrets — a path known only to the families who have lived beneath these peaks for generations.",
-      zh: "破晓之前，尘嚣未至，我们从森林仍守着秘密的地方启程——一条只属于世代居住在这些山峰脚下的家族的小路。",
+      en: "The park's quartzite sandstone pillars rise straight from the forest floor — the same peaks that inspired the floating mountains of Avatar. Your guide sets an unhurried pace for a full morning among them.",
+      zh: "公园中拔地而起的石英砂岩峰林，正是电影《阿凡达》悬浮山的灵感来源。向导会为您安排一个从容的上午，深入其中细细游览。",
     },
   },
   {
-    photo: PHOTOS.trail2,
-    title: { en: "The Empty Overlook", zh: "无人的观景台" },
+    photo: PHOTOS.tianmen,
+    title: { en: "Tianmen Mountain National Forest Park", zh: "天门山国家森林公园" },
     copy: {
-      en: "The same summit ten thousand visitors climb each year — except when you arrive, through a passage only locals know, at the one hour it belongs to no one but you.",
-      zh: "同一处每年吸引万千游客的山巅——但当您抵达时，穿过一条只有本地人知晓的通道，在那唯独属于您的一个时刻，这里空无一人。",
+      en: "A cable car ride above the valley leads to Tianmen Cave, a natural archway carved through the mountain, and the cliffside glass walkways beyond it.",
+      zh: "缆车穿越山谷直达天门洞——一座天然形成的巨型山洞，再往前便是沿绝壁而建的玻璃栈道。",
     },
   },
   {
-    photo: PHOTOS.trail3,
-    title: { en: "The Ridge Without a Name", zh: "无名的山脊" },
+    photo: PHOTOS.tianzi,
+    title: {
+      en: "Wulingyuan Core Scenic Area — Tianzi Mountain & Suoxiyu",
+      zh: "武陵源核心景区——天子山与索溪峪",
+    },
     copy: {
-      en: "A full day on a trail that appears in no guidebook — carved by generations of mountain villagers, leading to a vista most residents of this province will never see.",
-      zh: "整整一天，走在任何旅行指南都未曾记载的山脊小径上——由世代山民踏出的路，通往这个省份大多数居民都未曾见过的景致。",
+      en: "Tianzi Mountain's viewing platforms look out over the full sweep of Wulingyuan's peaks, while the Suoxiyu valley offers a quieter, water-level view of the same landscape.",
+      zh: "天子山观景台可俯瞰武陵源群峰全景，索溪峪峡谷则从谷底水岸，呈现同一片景观的另一种静谧视角。",
     },
   },
   {
-    photo: PHOTOS.trail4,
-    title: { en: "Dinner at the Edge of the World", zh: "天涯尽头的晚宴" },
+    photo: PHOTOS.glassBridge,
+    title: { en: "Zhangjiajie Grand Canyon Glass Bridge", zh: "张家界大峡谷玻璃桥" },
     copy: {
-      en: "A private meal, prepared with mountain-grown ingredients, served where the cliffs fall away into cloud — the stories of these mountains told by the one person who truly knows them.",
-      zh: "一场私人晚宴，选用山间食材烹制，设于云雾漫过悬崖的边缘——由唯一真正了解这片山脉的人，为您讲述它的故事。",
+      en: "One of the world's longest and highest glass-bottomed bridges spans the Zhangjiajie Grand Canyon, roughly 300 metres above the valley floor.",
+      zh: "张家界大峡谷玻璃桥是世界上最长、最高的玻璃桥之一，横跨峡谷，距谷底约300米。",
+    },
+  },
+  {
+    photo: PHOTOS.huanglong,
+    title: { en: "Huanglong Cave (Yellow Dragon Cave)", zh: "黄龙洞" },
+    copy: {
+      en: "A limestone cave system with underground rivers and chambers of stalactites, formed over hundreds of thousands of years.",
+      zh: "黄龙洞是一座喀斯特溶洞群，内有地下河与历经数十万年形成的钟乳石景观。",
     },
   },
 ];
@@ -330,7 +347,7 @@ function JourneySection() {
           className="text-[#F9F9F9] text-3xl md:text-4xl"
           style={{ fontFamily: serifFont(lang) }}
         >
-          <T en="Four Days, One Trail at a Time" zh="四日时光，一径一程" />
+          <T en="Four Days, Five Landmarks" zh="四日时光，五大景区" />
         </h2>
       </motion.div>
 
@@ -380,27 +397,27 @@ function JourneySection() {
 // ---------------------------------------------------------------------------
 const differentiators = [
   {
-    icon: Compass,
-    title: { en: "Native-Born Guide", zh: "本地土生向导" },
+    icon: BadgeCheck,
+    title: { en: "Licensed Professional Guide", zh: "专业持证向导" },
     copy: {
-      en: "Not a licensed tour guide — a lifelong resident who has spent decades exploring beyond the marked trails.",
-      zh: "并非持证导游——而是一位在此山中生活数十年、走遍未标记山径的当地居民。",
+      en: "An officially licensed local guide, fluent in your language, with you at every site throughout the journey.",
+      zh: "官方认证的本地专业向导，精通您的语言，全程陪同五大景区。",
     },
   },
   {
     icon: Clock,
-    title: { en: "Timed to Perfection", zh: "精准择时" },
+    title: { en: "Timed to Avoid the Crowds", zh: "错峰安排" },
     copy: {
-      en: "Every route timed around light, weather, and crowd patterns known only through years of local observation.",
-      zh: "每一条路线的时间安排，都基于多年本地观察积累的光线、天气与人流规律。",
+      en: "Entry times and routes planned around each site's quieter hours, based on years of local experience.",
+      zh: "基于多年本地经验，合理安排入园时间与路线，尽量避开人流高峰。",
     },
   },
   {
-    icon: MapPinOff,
-    title: { en: "Off the Map", zh: "地图之外" },
+    icon: Users2,
+    title: { en: "Paced for Your Family", zh: "专属节奏" },
     copy: {
-      en: "A full day's trail that exists in no app, no guidebook, and no other itinerary.",
-      zh: "整整一日的行程，不存在于任何应用程序、旅行指南，或其他行程单中。",
+      en: "A private vehicle and a flexible schedule, so each day moves at a pace that suits your family — not a bus timetable.",
+      zh: "私人专车，行程灵活安排，让每一天都跟随您家庭的节奏——而非大巴时刻表。",
     },
   },
 ];
@@ -441,10 +458,7 @@ function SignatureExperience() {
             className="bg-white border border-stone-200 px-8 py-12 text-center hover:shadow-lg transition-shadow duration-300"
           >
             <Icon className="mx-auto mb-6 text-[#C5A059]" size={32} strokeWidth={1.2} />
-            <h3
-              className="text-[#111111] text-lg mb-3"
-              style={{ fontFamily: serifFont(lang) }}
-            >
+            <h3 className="text-[#111111] text-lg mb-3" style={{ fontFamily: serifFont(lang) }}>
               <T en={title.en} zh={title.zh} />
             </h3>
             <p className="text-stone-500 text-sm leading-[1.7]">
@@ -467,9 +481,9 @@ const services = [
     copy: { en: "Throughout your entire stay.", zh: "全程陪同，随行专属座驾。" },
   },
   {
-    icon: Users,
-    title: { en: "Dedicated Bilingual Guide", zh: "专属双语向导" },
-    copy: { en: "Native to Zhangjiajie, with you every step.", zh: "土生土长的张家界向导，全程随行。" },
+    icon: BadgeCheck,
+    title: { en: "Licensed Bilingual Guide", zh: "持证双语向导" },
+    copy: { en: "Officially licensed, native to Hunan, with you every step.", zh: "官方持证向导，土生土长的湖南本地人，全程随行。" },
   },
   {
     icon: Hotel,
@@ -479,7 +493,7 @@ const services = [
   {
     icon: UtensilsCrossed,
     title: { en: "All Meals Included", zh: "全程餐饮" },
-    copy: { en: "Including one private mountain-side dinner.", zh: "包含一场私人山间晚宴。" },
+    copy: { en: "Breakfast, lunch, and dinner throughout the journey.", zh: "全程含早、中、晚三餐。" },
   },
   {
     icon: ShieldCheck,
@@ -709,14 +723,14 @@ function PricingTeaser() {
           style={{ fontFamily: serifFont(lang) }}
         >
           <T
-            en="From €1,450 per person — a journey without comparison, because there is nothing else quite like it."
-            zh="每人价格自 €1,450 起——独一无二的旅程，因为世间再无相似之选。"
+            en="From €1,450 per person — a private itinerary across Zhangjiajie's five landmark sites."
+            zh="每人价格自 €1,450 起——涵盖张家界五大标志性景区的私人定制行程。"
           />
         </p>
         <p className="text-stone-500 text-xs md:text-sm mt-6 tracking-wide">
           <T
-            en="Final pricing is confirmed after a short consultation, based on season, group size, and trail selection."
-            zh="最终价格将根据季节、团队人数及路线选择，在简短咨询后确认。"
+            en="Final pricing is confirmed after a short consultation, based on season, group size, and accommodation."
+            zh="最终价格将根据季节、团队人数及住宿标准，在简短咨询后确认。"
           />
         </p>
       </motion.div>
@@ -770,10 +784,7 @@ function EnquirySection() {
 
         {submitted ? (
           <div className="border border-[#C5A059] bg-[#161616] px-8 py-14 text-center">
-            <p
-              className="text-[#F9F9F9] text-xl mb-2"
-              style={{ fontFamily: serifFont(lang) }}
-            >
+            <p className="text-[#F9F9F9] text-xl mb-2" style={{ fontFamily: serifFont(lang) }}>
               <T en="Thank You" zh="感谢您的咨询" />
             </p>
             <p className="text-stone-400 text-sm">
@@ -887,7 +898,7 @@ function Footer() {
           className="text-[#F9F9F9] tracking-[0.15em] text-sm uppercase"
           style={{ fontFamily: serifFont(lang) }}
         >
-          Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
+          Quartz Peaks <span className="text-stone-500 text-xs align-middle">· 石峰之旅</span>
         </span>
         <a
           href="#"
@@ -898,8 +909,8 @@ function Footer() {
         </a>
         <p className="text-stone-600 text-xs tracking-wide">
           <T
-            en="© 2026 Hidden Trails Zhangjiajie. All rights reserved."
-            zh="© 2026 隐山小径 张家界。保留所有权利。"
+            en="© 2026 Quartz Peaks Zhangjiajie. All rights reserved."
+            zh="© 2026 石峰之旅 张家界。保留所有权利。"
           />
         </p>
       </div>
@@ -910,7 +921,7 @@ function Footer() {
 // ---------------------------------------------------------------------------
 // Root
 // ---------------------------------------------------------------------------
-export default function HiddenTrailsLanding() {
+export default function QuartzPeaksLanding() {
   const [lang, setLang] = useState("en");
   const toggle = () => setLang((l) => (l === "en" ? "zh" : "en"));
 
