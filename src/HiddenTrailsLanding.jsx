@@ -21,6 +21,7 @@ import {
   DoorOpen,
   Landmark,
   Calendar,
+  Umbrella,
 } from "lucide-react";
 
 /**
@@ -31,8 +32,11 @@ import {
  * Photography: Unsplash License (free for commercial use, no attribution required).
  * All copy lives in `content = { en: {...}, zh: {...}, it: {...} }` below; the language
  * toggle in the navbar sets a single `lang` state and every section reads from content[lang].
- * FAQ / Before You Arrive answers are drafted with industry-standard defaults and marked
- * "to be confirmed" — replace with the client's actual policies before launch.
+ * Company, payment, cancellation, insurance, language, and flight-logistics copy reflects
+ * real info supplied by the operator (BabyDuck Travel Co., Ltd.) for a pitch/demo build.
+ * Pricing tiers are indicative market-rate estimates, explicitly marked as such — confirm
+ * real figures before using them commercially. The child-suitability FAQ answer is still a
+ * placeholder draft (no real policy supplied yet).
  */
 
 // ---------------------------------------------------------------------------
@@ -175,18 +179,20 @@ const content = {
     services: {
       eyebrow: "All-Inclusive",
       heading: "Every Detail, Arranged",
+      note: "International and domestic flights to Zhangjiajie are not included — book your own arrival, and we take over the moment you land.",
       items: [
         { icon: Car, text: "Private vehicle & driver throughout your stay" },
         { icon: Users, text: "Dedicated bilingual guide, native to Zhangjiajie" },
         { icon: Hotel, text: "Curated boutique accommodation, 3 nights" },
         { icon: UtensilsCrossed, text: "All meals, including one private mountain-side dinner" },
+        { icon: Umbrella, text: "Travel insurance included, arranged on your behalf" },
         { icon: ShieldCheck, text: "No hidden costs, no forced shopping, no group merging" },
       ],
     },
     trust: {
       eyebrow: "Trust & Assurance",
       title: "A Small Number of Journeys, Each One Considered",
-      body: "We accept a limited number of families each season, working alongside a licensed local travel partner to ensure full regulatory coverage, insurance, and 24-hour support throughout your journey.",
+      body: "We are BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), based in Zhangjiajie, Hunan. We accept a limited number of families each season, include travel insurance arranged on your behalf, and provide 24-hour support throughout your journey.",
       reviews: ["Guest story coming soon", "First journeys departing [season] — be among our founding guests"],
     },
     beforeYouArrive: {
@@ -201,12 +207,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Payments, Handled",
-          body: "China runs largely on mobile payment systems that most international cards can't access directly. Our team can pre-load a local payment app on your behalf or arrange cash exchange on arrival, so you're covered from day one. [Draft answer — to be confirmed]",
+          body: "Payment is made through a secure international third-party platform, accepting all major credit cards (Visa, Mastercard, Amex) — no local payment app needed on your end.",
         },
         {
           icon: Languages,
           title: "Language Support",
-          body: "Guides are fluent in English and Mandarin. Italian-speaking support can be arranged in advance, subject to availability. [Draft answer — to be confirmed]",
+          body: "Guides are fluent in Mandarin and English. Support in other languages, including Italian, can be arranged for an additional fee via a specialized interpreter-guide, subject to availability.",
         },
         {
           icon: Calendar,
@@ -225,21 +231,28 @@ const content = {
         },
         {
           q: "What payment methods do you accept?",
-          a: "We accept international bank transfer and major credit cards (Visa, Mastercard). A deposit secures your booking, with the balance due before departure. [Draft answer — to be confirmed]",
+          a: "We accept major credit cards (Visa, Mastercard, Amex) through a secure international third-party payment platform. A deposit secures your booking, with the balance due before departure.",
         },
         {
           q: "What is your cancellation policy?",
-          a: "Full refund if cancelled 30+ days before departure; 50% refund between 15–29 days; no refund within 14 days of departure. [Draft answer — to be confirmed]",
+          a: "Cancellations are handled in accordance with China's statutory travel contract regulations. The refund amount depends on costs already committed on your behalf (hotel deposits, permits, guide bookings) at the time of cancellation — we'll confirm the exact terms for your dates when you book.",
         },
         {
           q: "Do your guides speak Italian?",
-          a: "Our guides are fluent in English and Mandarin; Italian-speaking support can be arranged with advance notice, subject to availability. [Draft answer — to be confirmed]",
+          a: "Our guides are fluent in Mandarin and English. Italian-speaking support can be arranged for an additional fee via a specialized interpreter-guide, subject to availability.",
         },
       ],
     },
     pricing: {
-      line: "From €1,450 per person — a journey without comparison, because there is nothing else quite like it.",
-      sub: "Final pricing confirmed after a short consultation, based on season, group size, and trail selection.",
+      eyebrow: "Pricing",
+      heading: "What This Journey Costs",
+      tiers: [
+        { label: "Solo Traveler", price: "€2,850", unit: "per person" },
+        { label: "2 Travelers", price: "€1,950", unit: "per person" },
+        { label: "3–4 Travelers (Family)", price: "€1,450", unit: "per person" },
+        { label: "5–6 Travelers (Small Group)", price: "€1,250", unit: "per person" },
+      ],
+      note: "Indicative pricing based on current market rates — confirmed after a short consultation, based on season and trail selection.",
     },
     enquiry: {
       eyebrow: "Enquire",
@@ -256,6 +269,8 @@ const content = {
       successBody: "Your enquiry has been received. We will be in touch shortly.",
     },
     footer: {
+      operator: "Operated by BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司)",
+      contact: "yalinggan911@gmail.com · No. 8 Erxiang, Yongding District, Zhangjiajie, Hunan, China",
       copyright: "© 2026 Hidden Trails Zhangjiajie",
     },
   },
@@ -353,18 +368,20 @@ const content = {
     services: {
       eyebrow: "Tutto Incluso",
       heading: "Ogni Dettaglio, Curato",
+      note: "I voli internazionali e nazionali per Zhangjiajie non sono inclusi — prenotate autonomamente il vostro arrivo: dal momento in cui atterrate, ci occupiamo di tutto noi.",
       items: [
         { icon: Car, text: "Veicolo privato e autista per tutto il soggiorno" },
         { icon: Users, text: "Guida bilingue dedicata, nativa di Zhangjiajie" },
         { icon: Hotel, text: "Alloggio boutique selezionato, 3 notti" },
         { icon: UtensilsCrossed, text: "Tutti i pasti, inclusa una cena privata in montagna" },
+        { icon: Umbrella, text: "Assicurazione di viaggio inclusa, organizzata per voi" },
         { icon: ShieldCheck, text: "Nessun costo nascosto, nessuno shopping forzato, nessun gruppo misto" },
       ],
     },
     trust: {
       eyebrow: "Fiducia e Garanzie",
       title: "Un Numero Limitato di Viaggi, Ognuno Curato nei Dettagli",
-      body: "Accogliamo un numero limitato di famiglie ogni stagione, lavorando con un partner turistico locale autorizzato per garantire copertura assicurativa completa e assistenza 24 ore su 24.",
+      body: "Siamo BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), con sede a Zhangjiajie, Hunan. Accogliamo un numero limitato di famiglie ogni stagione, includiamo un'assicurazione di viaggio organizzata per voi, e offriamo assistenza 24 ore su 24 per tutta la durata del viaggio.",
       reviews: ["Storia degli ospiti in arrivo", "Prime partenze [stagione] — tra i nostri primi ospiti"],
     },
     beforeYouArrive: {
@@ -379,12 +396,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Pagamenti, Semplificati",
-          body: "In Cina si utilizzano prevalentemente sistemi di pagamento mobile non sempre accessibili con le carte internazionali. Il nostro team può pre-caricare per voi un'app di pagamento locale o organizzare il cambio contante all'arrivo, così sarete coperti fin dal primo giorno. [Bozza — da confermare]",
+          body: "Il pagamento avviene tramite una piattaforma internazionale di terze parti sicura, che accetta tutte le principali carte di credito (Visa, Mastercard, Amex) — non è necessaria alcuna app di pagamento locale da parte vostra.",
         },
         {
           icon: Languages,
           title: "Supporto Linguistico",
-          body: "Le guide parlano correntemente inglese e mandarino. Un supporto in italiano può essere organizzato in anticipo, in base alla disponibilità. [Bozza — da confermare]",
+          body: "Le guide parlano correntemente mandarino e inglese. Il supporto in altre lingue, incluso l'italiano, può essere organizzato con un costo aggiuntivo tramite una guida-interprete specializzata, in base alla disponibilità.",
         },
         {
           icon: Calendar,
@@ -403,21 +420,28 @@ const content = {
         },
         {
           q: "Quali metodi di pagamento accettate?",
-          a: "Accettiamo bonifico bancario internazionale e le principali carte di credito (Visa, Mastercard). Un acconto conferma la prenotazione, con il saldo dovuto prima della partenza. [Bozza — da confermare]",
+          a: "Accettiamo le principali carte di credito (Visa, Mastercard, Amex) tramite una piattaforma di pagamento internazionale di terze parti sicura. Un acconto conferma la prenotazione, con il saldo dovuto prima della partenza.",
         },
         {
           q: "Qual è la vostra politica di cancellazione?",
-          a: "Rimborso totale in caso di cancellazione con più di 30 giorni di anticipo; rimborso del 50% tra 15 e 29 giorni; nessun rimborso entro 14 giorni dalla partenza. [Bozza — da confermare]",
+          a: "Le cancellazioni sono gestite in conformità con la normativa cinese sui contratti di viaggio. L'importo del rimborso dipende dai costi già impegnati per voi (depositi alberghieri, permessi, prenotazione della guida) al momento della cancellazione — vi confermeremo i termini esatti per le vostre date al momento della prenotazione.",
         },
         {
           q: "Le vostre guide parlano italiano?",
-          a: "Le nostre guide parlano correntemente inglese e mandarino; è possibile organizzare un supporto in italiano su richiesta anticipata, in base alla disponibilità. [Bozza — da confermare]",
+          a: "Le nostre guide parlano correntemente mandarino e inglese. Il supporto in italiano può essere organizzato con un costo aggiuntivo tramite una guida-interprete specializzata, in base alla disponibilità.",
         },
       ],
     },
     pricing: {
-      line: "A partire da €1.450 a persona — un viaggio senza paragoni, perché non esiste nulla di simile.",
-      sub: "Il prezzo finale viene confermato dopo una breve consulenza, in base a stagione, numero di persone e sentieri scelti.",
+      eyebrow: "Prezzi",
+      heading: "Quanto Costa Questo Viaggio",
+      tiers: [
+        { label: "Viaggiatore Singolo", price: "€2.850", unit: "a persona" },
+        { label: "2 Viaggiatori", price: "€1.950", unit: "a persona" },
+        { label: "3–4 Viaggiatori (Famiglia)", price: "€1.450", unit: "a persona" },
+        { label: "5–6 Viaggiatori (Piccolo Gruppo)", price: "€1.250", unit: "a persona" },
+      ],
+      note: "Prezzi indicativi basati sulle tariffe di mercato attuali — confermati dopo una breve consulenza, in base alla stagione e ai sentieri scelti.",
     },
     enquiry: {
       eyebrow: "Richiedi Informazioni",
@@ -434,6 +458,8 @@ const content = {
       successBody: "La vostra richiesta è stata ricevuta. Vi contatteremo a breve.",
     },
     footer: {
+      operator: "Gestito da BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司)",
+      contact: "yalinggan911@gmail.com · No. 8 Erxiang, Distretto di Yongding, Zhangjiajie, Hunan, Cina",
       copyright: "© 2026 Hidden Trails Zhangjiajie",
     },
   },
@@ -529,18 +555,20 @@ const content = {
     services: {
       eyebrow: "全包服务",
       heading: "每个细节，皆已安排",
+      note: "往返及国内段机票不包含在内——请自行预订抵达张家界的行程，落地后的一切由我们全权负责。",
       items: [
         { icon: Car, text: "全程私人专车及司机" },
         { icon: Users, text: "专属双语向导，土生土长的张家界人" },
         { icon: Hotel, text: "三晚精心挑选的精品住宿" },
         { icon: UtensilsCrossed, text: "全程餐饮，包含一场私人山间晚宴" },
+        { icon: Umbrella, text: "包含旅行保险，由我们统一为您安排" },
         { icon: ShieldCheck, text: "无隐藏消费、无强制购物、无拼团合并" },
       ],
     },
     trust: {
       eyebrow: "信任与保障",
       title: "限量旅程，用心安排",
-      body: "我们每季仅接待有限数量的家庭，并与持牌本地旅行合作方紧密协作，确保全程受监管保障、投保完善，并提供24小时支持。",
+      body: "我们是贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.），总部位于湖南张家界。我们每季仅接待有限数量的家庭，全程为您安排旅行保险，并提供24小时支持。",
       reviews: ["客户故事即将呈现", "首批旅程将于[季节]启程——成为我们的首批贵宾"],
     },
     beforeYouArrive: {
@@ -555,12 +583,12 @@ const content = {
         {
           icon: CreditCard,
           title: "支付，全程代劳",
-          body: "中国主要使用移动支付系统，大多数国际银行卡无法直接使用。我们可以为您提前充值本地支付软件，或在抵达时安排现金兑换服务，让您从第一天起就无需担心支付问题。[草拟答案 — 待确认]",
+          body: "支付通过安全的国际第三方支付平台完成，支持所有主流信用卡（Visa、Mastercard、运通等）——您无需自行准备任何本地支付软件。",
         },
         {
           icon: Languages,
           title: "语言支持",
-          body: "向导精通英语与普通话。如提前申请，可视情况安排意大利语支持。[草拟答案 — 待确认]",
+          body: "向导精通普通话和英语。如需其他语言（包括意大利语）支持，可加价安排专职翻译向导，视具体情况而定。",
         },
         {
           icon: Calendar,
@@ -579,21 +607,28 @@ const content = {
         },
         {
           q: "你们接受哪些付款方式？",
-          a: "我们接受国际银行转账及主要信用卡（Visa、Mastercard）支付。预订需支付定金，尾款于出发前结清。[草拟答案 — 待确认]",
+          a: "我们通过安全的国际第三方支付平台接受主流信用卡（Visa、Mastercard、运通等）付款。预订需支付定金，尾款于出发前结清。",
         },
         {
           q: "取消政策是怎样的？",
-          a: "出发前30天以上取消可全额退款；出发前15–29天取消退还50%；出发前14天内取消不予退款。[草拟答案 — 待确认]",
+          a: "取消政策按照国家相关旅游合同法规执行。退款金额将根据取消时已为您支付的成本（酒店定金、门票预订、向导安排等）确定——具体条款会在您预订时为您确认。",
         },
         {
           q: "向导会说意大利语吗？",
-          a: "我们的向导精通英语和普通话；如提前告知，可视情况安排意大利语支持。[草拟答案 — 待确认]",
+          a: "我们的向导精通普通话和英语。如需意大利语支持，可加价安排专职翻译向导，视具体情况而定。",
         },
       ],
     },
     pricing: {
-      line: "每人价格自 €1,450 起——独一无二的旅程，因为世间再无相似之选。",
-      sub: "最终价格将根据季节、团队人数及路线选择，在简短咨询后确认。",
+      eyebrow: "价格",
+      heading: "旅程费用",
+      tiers: [
+        { label: "单人出行", price: "€2,850", unit: "每人" },
+        { label: "2人结伴", price: "€1,950", unit: "每人" },
+        { label: "3-4人（家庭）", price: "€1,450", unit: "每人" },
+        { label: "5-6人（小团）", price: "€1,250", unit: "每人" },
+      ],
+      note: "以上为参考市场价，最终价格将根据季节及路线选择，在简短咨询后确认。",
     },
     enquiry: {
       eyebrow: "咨询",
@@ -610,6 +645,8 @@ const content = {
       successBody: "我们已收到您的咨询，将尽快与您联系。",
     },
     footer: {
+      operator: "运营主体：贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.）",
+      contact: "yalinggan911@gmail.com · 湖南省张家界市永定区二巷8号",
       copyright: "© 2026 隐山小径 张家界",
     },
   },
@@ -1001,11 +1038,14 @@ function ServicesGrid() {
           {t.services.eyebrow}
         </p>
         <h2
-          className="text-[#F9F9F9] text-3xl md:text-4xl"
+          className="text-[#F9F9F9] text-3xl md:text-4xl mb-4"
           style={{ fontFamily: headingFont(lang) }}
         >
           {t.services.heading}
         </h2>
+        {t.services.note && (
+          <p className="text-stone-500 text-xs md:text-sm max-w-xl mx-auto">{t.services.note}</p>
+        )}
       </motion.div>
 
       <motion.div
@@ -1195,21 +1235,51 @@ function PricingTeaser() {
   return (
     <section className="bg-[#111111] py-24 md:py-28 px-6">
       <motion.div
-        className="max-w-2xl mx-auto text-center"
+        className="max-w-3xl mx-auto text-center mb-14"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeUp}
       >
-        <div className="w-10 h-px bg-[#C5A059] mx-auto mb-10" />
-        <p
-          className="text-xl md:text-2xl text-[#F9F9F9] leading-snug"
+        <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-4">
+          {t.pricing.eyebrow}
+        </p>
+        <h2
+          className="text-[#F9F9F9] text-3xl md:text-4xl"
           style={{ fontFamily: headingFont(lang) }}
         >
-          {t.pricing.line}
-        </p>
-        <p className="text-stone-500 text-xs md:text-sm mt-6 tracking-wide">{t.pricing.sub}</p>
+          {t.pricing.heading}
+        </h2>
       </motion.div>
+
+      <motion.div
+        className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800 mb-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+      >
+        {t.pricing.tiers.map((tier, i) => (
+          <motion.div
+            key={i}
+            variants={fadeUp}
+            className="bg-[#111111] px-6 py-10 text-center"
+          >
+            <p className="text-stone-500 text-xs uppercase tracking-wider mb-4">{tier.label}</p>
+            <p
+              className="text-[#C5A059] text-3xl mb-1"
+              style={{ fontFamily: headingFont(lang) }}
+            >
+              {tier.price}
+            </p>
+            <p className="text-stone-500 text-xs">{tier.unit}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <p className="max-w-xl mx-auto text-center text-stone-500 text-xs md:text-sm tracking-wide">
+        {t.pricing.note}
+      </p>
     </section>
   );
 }
@@ -1367,21 +1437,27 @@ function Footer() {
   const { t, lang } = useLang();
   return (
     <footer className="bg-[#111111] border-t border-stone-800 py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <span
-          className="text-[#F9F9F9] tracking-[0.15em] text-sm uppercase"
-          style={{ fontFamily: headingFont(lang) }}
-        >
-          Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
-        </span>
-        <a
-          href="#"
-          aria-label="Instagram"
-          className="text-stone-400 hover:text-[#C5A059] transition-colors"
-        >
-          <Instagram size={20} />
-        </a>
-        <p className="text-stone-600 text-xs tracking-wide">{t.footer.copyright}</p>
+      <div className="max-w-7xl mx-auto flex flex-col gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <span
+            className="text-[#F9F9F9] tracking-[0.15em] text-sm uppercase"
+            style={{ fontFamily: headingFont(lang) }}
+          >
+            Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
+          </span>
+          <a
+            href="#"
+            aria-label="Instagram"
+            className="text-stone-400 hover:text-[#C5A059] transition-colors"
+          >
+            <Instagram size={20} />
+          </a>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left border-t border-stone-900 pt-6">
+          <p className="text-stone-500 text-xs tracking-wide">{t.footer.operator}</p>
+          <p className="text-stone-500 text-xs tracking-wide">{t.footer.contact}</p>
+          <p className="text-stone-600 text-xs tracking-wide">{t.footer.copyright}</p>
+        </div>
       </div>
     </footer>
   );
