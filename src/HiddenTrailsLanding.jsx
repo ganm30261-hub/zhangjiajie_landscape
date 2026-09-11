@@ -17,6 +17,9 @@ import {
   MessageCircle,
   Plus,
   Minus,
+  Mountain,
+  DoorOpen,
+  Landmark,
 } from "lucide-react";
 
 /**
@@ -58,18 +61,39 @@ const content = {
     },
     philosophy:
       "Most travelers see Zhangjiajie through a viewfinder, shoulder to shoulder with a thousand others. Two thousand years ago, a man who had already achieved everything chose to disappear into these mountains rather than stay in the world that made him famous. We think he was onto something. This is not sightseeing. This is disappearance, by choice.",
+    whyZhangjiajie: {
+      eyebrow: "Why Zhangjiajie",
+      heading: "A Landscape Unlike Any Other",
+      items: [
+        {
+          icon: Mountain,
+          title: "Pillars Found Nowhere Else",
+          body: "Thousands of quartz-sandstone pillars rise from the forest floor — a landform so singular that one of them was officially renamed Avatar Hallelujah Mountain after inspiring the floating peaks of Pandora.",
+        },
+        {
+          icon: DoorOpen,
+          title: "A Door Carved by the Mountain Itself",
+          body: "Tianmen Cave, the world's highest natural archway, is said to have opened in a single moment in 263 AD, when a section of the cliff face collapsed — a threshold locals still call the gate between worlds.",
+        },
+        {
+          icon: Landmark,
+          title: "A UNESCO World Heritage Landscape",
+          body: "The Wulingyuan Scenic Area, encompassing Zhangjiajie National Forest Park, has been protected as a World Heritage Site since 1992 — one of the rarest karst-and-quartzite landscapes on Earth.",
+        },
+      ],
+    },
     journey: {
       eyebrow: "The Journey",
-      heading: "Four Days, Four Moments",
+      heading: "Four Days, Five Moments",
       stops: [
         {
           img: IMG_PEAKS,
-          title: "The Door That Opened Itself",
-          body: "Legend says this mountain once tore itself open in a single moment — a door the heavens chose to open, not one that was built. The same door ten thousand visitors pass through each year — except when you arrive, through a passage only locals know, at the one hour it belongs to no one but you.",
+          title: "Tianmen Mountain: The Door That Opened Itself",
+          body: "Legend says this mountain once tore itself open in a single moment — a door the heavens chose to open, not one that was built. After dark, the same legend comes alive on stage at the mountain's base, in the Tianmen Fox Fairy performance — an open-air retelling of the fox spirit said to have crossed through that door into the world of men. By day, you'll pass through it yourself: through a passage only locals know, at the one hour it belongs to no one but you.",
         },
         {
           img: IMG_CLIFF,
-          title: "The Empty Overlook",
+          title: "Zhangjiajie National Forest Park: The Empty Overlook",
           before: "These peaks took ",
           emphasis: "380 million years",
           after:
@@ -85,6 +109,12 @@ const content = {
           imgPosition: "object-bottom",
           title: "Dinner at the Edge of the World",
           body: "A private meal, prepared with mountain-grown ingredients, served where the cliffs fall away into cloud — the stories of these mountains told by the one person who truly knows them.",
+        },
+        {
+          img: IMG_VALLEY,
+          imgPosition: "object-top",
+          title: "Zhangjiajie Grand Canyon: The Bridge Above the Clouds",
+          body: "One of the world's longest and highest glass-bottomed bridges spans the canyon floor, roughly 300 metres below — a gentler final morning before the journey home, walked at whatever pace you choose.",
         },
       ],
     },
@@ -203,18 +233,39 @@ const content = {
     },
     philosophy:
       "La maggior parte dei viaggiatori vede Zhangjiajie attraverso un obiettivo, spalla a spalla con mille altri. Duemila anni fa, un uomo che aveva già raggiunto tutto scelse di scomparire tra queste montagne, piuttosto che restare nel mondo che lo aveva reso celebre. Crediamo avesse capito qualcosa. Questo non è turismo. È una sparizione, per scelta.",
+    whyZhangjiajie: {
+      eyebrow: "Perché Zhangjiajie",
+      heading: "Un Paesaggio Senza Eguali",
+      items: [
+        {
+          icon: Mountain,
+          title: "Pilastri che Non Esistono Altrove",
+          body: "Migliaia di pilastri di arenaria quarzifera si ergono dal terreno forestale — una conformazione così unica che uno di essi è stato ufficialmente ribattezzato Avatar Hallelujah Mountain, dopo aver ispirato le montagne fluttuanti di Pandora.",
+        },
+        {
+          icon: DoorOpen,
+          title: "Una Porta Scavata dalla Montagna Stessa",
+          body: "La Grotta di Tianmen, il più alto arco naturale al mondo, si dice si sia aperta in un solo istante nel 263 d.C., quando una porzione della parete rocciosa crollò — una soglia che i locali chiamano ancora la porta tra i mondi.",
+        },
+        {
+          icon: Landmark,
+          title: "Un Paesaggio Patrimonio dell'UNESCO",
+          body: "L'area panoramica di Wulingyuan, che comprende il Parco Forestale Nazionale di Zhangjiajie, è protetta come Patrimonio dell'Umanità dal 1992 — uno dei paesaggi di arenaria quarzifera più rari al mondo.",
+        },
+      ],
+    },
     journey: {
       eyebrow: "Il Viaggio",
-      heading: "Quattro Giorni, Quattro Momenti",
+      heading: "Quattro Giorni, Cinque Momenti",
       stops: [
         {
           img: IMG_PEAKS,
-          title: "La Porta che si Aprì da Sola",
-          body: "La leggenda narra che questa montagna si sia aperta in un solo istante — una porta che il cielo scelse di aprire, non che l'uomo costruì. La stessa porta che diecimila visitatori attraversano ogni anno — tranne quando ci arrivate voi, attraverso un passaggio noto solo ai locali, nell'unica ora in cui appartiene solo a voi.",
+          title: "Monte Tianmen: La Porta che si Aprì da Sola",
+          body: "La leggenda narra che questa montagna si sia aperta in un solo istante — una porta che il cielo scelse di aprire, non che l'uomo costruì. Dopo il tramonto, la stessa leggenda prende vita sul palco ai piedi della montagna, nello spettacolo Tianmen Fox Fairy — una rappresentazione all'aperto dello spirito volpe che, si narra, attraversò quella porta per entrare nel mondo degli uomini. Di giorno, la attraverserete voi stessi: attraverso un passaggio noto solo ai locali, nell'unica ora in cui appartiene solo a voi.",
         },
         {
           img: IMG_CLIFF,
-          title: "Il Belvedere Vuoto",
+          title: "Parco Forestale Nazionale di Zhangjiajie: Il Belvedere Vuoto",
           before: "Queste vette hanno impiegato ",
           emphasis: "380 milioni di anni",
           after:
@@ -230,6 +281,12 @@ const content = {
           imgPosition: "object-bottom",
           title: "Cena ai Confini del Mondo",
           body: "Un pasto privato, preparato con ingredienti di montagna, servito dove le scogliere si perdono tra le nuvole — le storie di queste montagne raccontate da chi le conosce davvero.",
+        },
+        {
+          img: IMG_VALLEY,
+          imgPosition: "object-top",
+          title: "Grand Canyon di Zhangjiajie: Il Ponte Sopra le Nuvole",
+          body: "Uno dei ponti di vetro più lunghi e alti al mondo attraversa il canyon, a circa 300 metri dal fondovalle — un'ultima mattinata più rilassata prima del viaggio di ritorno, percorsa al ritmo che preferite.",
         },
       ],
     },
@@ -346,18 +403,39 @@ const content = {
     },
     philosophy:
       "大多数游客只是隔着取景框、挤在人群中看张家界。两千年前，一位早已功成名就的人，选择遁入这片山林，而非留在成就了他声名的世界中。我们认为，他看透了什么。这不是观光，这是一场心甘情愿的隐退。",
+    whyZhangjiajie: {
+      eyebrow: "为什么是张家界",
+      heading: "举世无双的地貌",
+      items: [
+        {
+          icon: Mountain,
+          title: "绝无仅有的峰林",
+          body: "数千座石英砂岩峰柱拔地而起——如此独特的地貌，其中一座更因启发了《阿凡达》潘多拉星球的悬浮山，而被正式更名为「阿凡达·哈利路亚山」。",
+        },
+        {
+          icon: DoorOpen,
+          title: "山体自行开凿的门",
+          body: "天门洞是世界上已知海拔最高的天然穿山溶洞，相传于公元263年山体崩裂的瞬间豁然洞开——当地人至今仍称它为通往异界的门。",
+        },
+        {
+          icon: Landmark,
+          title: "世界自然遗产地貌",
+          body: "武陵源风景名胜区（含张家界国家森林公园）自1992年起被列入世界自然遗产名录——是地球上最稀有的石英砂岩峰林地貌之一。",
+        },
+      ],
+    },
     journey: {
       eyebrow: "旅程",
-      heading: "四天，四个瞬间",
+      heading: "四天，五个瞬间",
       stops: [
         {
           img: IMG_PEAKS,
-          title: "自己裂开的门",
-          body: "传说这座山曾在瞬间自行裂开——那是上天选择开启的门，而非人工凿成。同一扇门，每年有上万游客经过——但当您抵达时，会通过一条只有本地人知晓的通道，在那唯独属于您的一个时刻穿过它。",
+          title: "天门山：自己裂开的门",
+          body: "传说这座山曾在瞬间自行裂开——那是上天选择开启的门，而非人工凿成。入夜后，同一个传说会在山脚下的《天门狐仙》实景演出中重现——讲述那只据说曾穿过此门、来到人间的狐仙的故事。白天，您将亲自穿过它——通过一条只有本地人知晓的通道，在那唯独属于您的一个时刻。",
         },
         {
           img: IMG_CLIFF,
-          title: "无人的观景台",
+          title: "张家界国家森林公园：无人的观景台",
           before: "这些山峰历经了",
           emphasis: "3.8亿年",
           after:
@@ -373,6 +451,12 @@ const content = {
           imgPosition: "object-bottom",
           title: "天涯尽头的晚宴",
           body: "一场私人晚宴，选用山间食材烹制，设于云雾漫过悬崖的边缘——由唯一真正了解这片山脉的人，为您讲述它的故事。",
+        },
+        {
+          img: IMG_VALLEY,
+          imgPosition: "object-top",
+          title: "张家界大峡谷：云端之上的桥",
+          body: "世界上最长、最高的玻璃桥之一横跨峡谷，距谷底约300米——在归程之前，以您喜欢的节奏，度过一个更从容的最后清晨。",
         },
       ],
     },
@@ -655,6 +739,55 @@ function Philosophy() {
         >
           {t.philosophy}
         </p>
+      </motion.div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Why Zhangjiajie — the geography and legend that make this place distinct
+// ---------------------------------------------------------------------------
+function WhyZhangjiajie() {
+  const { t, lang } = useLang();
+  return (
+    <section className="bg-[#F9F9F9] py-24 md:py-32 px-6 border-t border-stone-200">
+      <motion.div
+        className="max-w-3xl mx-auto text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
+        <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-4">
+          {t.whyZhangjiajie.eyebrow}
+        </p>
+        <h2
+          className="text-[#111111] text-3xl md:text-4xl"
+          style={{ fontFamily: headingFont(lang) }}
+        >
+          {t.whyZhangjiajie.heading}
+        </h2>
+      </motion.div>
+
+      <motion.div
+        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerContainer}
+      >
+        {t.whyZhangjiajie.items.map(({ icon: Icon, title, body }, i) => (
+          <motion.div key={i} variants={fadeUp} className="text-center px-4">
+            <Icon className="mx-auto mb-6 text-[#C5A059]" size={32} strokeWidth={1.2} />
+            <h3
+              className="text-[#111111] text-lg mb-3"
+              style={{ fontFamily: headingFont(lang) }}
+            >
+              {title}
+            </h3>
+            <p className="text-stone-500 text-sm leading-[1.7]">{body}</p>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );
@@ -1222,6 +1355,7 @@ export default function HiddenTrailsLanding() {
           transition={{ duration: 0.3 }}
         >
           <Philosophy />
+          <WhyZhangjiajie />
           <JourneySection />
           <SignatureExperience />
           <ServicesGrid />
