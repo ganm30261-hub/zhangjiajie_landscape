@@ -20,13 +20,15 @@ import {
 } from "lucide-react";
 
 /**
- * HIDDEN TRAILS · 隐山小径 — Landing Page (bilingual EN / IT)
+ * HIDDEN TRAILS · 隐山小径 — Landing Page (bilingual EN / 中文 / IT)
  * Single-file React component. Fonts loaded via Google Fonts <link> in index.html:
- *   Playfair Display (headings, both EN + IT — Latin charset covers Italian) + Inter (body).
+ *   Playfair Display + Inter (EN/IT, Latin charset covers Italian),
+ *   Noto Serif SC + Noto Sans SC (中文).
  * Photography: Unsplash License (free for commercial use, no attribution required).
- * All copy lives in `content = { en: {...}, it: {...} }` below; the language toggle
- * in the navbar flips a single `lang` state and every section reads from content[lang].
- * Content marked [FAQ_ANSWER — ...] is a placeholder and must be supplied by the client.
+ * All copy lives in `content = { en: {...}, zh: {...}, it: {...} }` below; the language
+ * toggle in the navbar sets a single `lang` state and every section reads from content[lang].
+ * FAQ / Before You Arrive answers are drafted with industry-standard defaults and marked
+ * "to be confirmed" — replace with the client's actual policies before launch.
  */
 
 // ---------------------------------------------------------------------------
@@ -136,12 +138,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Payments, Handled",
-          body: "China runs largely on mobile payment systems that most international cards can't access directly. We arrange this in advance, so you'll never need to think about it during your stay. [FAQ_ANSWER — 待补充：具体协助方式，如代付/预付现金兑换服务]",
+          body: "China runs largely on mobile payment systems that most international cards can't access directly. Our team can pre-load a local payment app on your behalf or arrange cash exchange on arrival, so you're covered from day one. [Draft answer — to be confirmed]",
         },
         {
           icon: Languages,
           title: "Language Support",
-          body: "[FAQ_ANSWER — 待补充：当前向导语言支持范围，如实说明]",
+          body: "Guides are fluent in English and Mandarin. Italian-speaking support can be arranged in advance, subject to availability. [Draft answer — to be confirmed]",
         },
       ],
     },
@@ -151,16 +153,19 @@ const content = {
       items: [
         {
           q: "Is this trip suitable for families with children?",
-          a: "[FAQ_ANSWER — 待补充：建议年龄范围与体力要求]",
+          a: "This journey involves several hours of walking each day, including uneven mountain trails and steps. It's generally suitable for children aged 8 and above who are comfortable with moderate hiking. [Draft answer — to be confirmed]",
         },
         {
           q: "What payment methods do you accept?",
-          a: "[FAQ_ANSWER — 待补充：付款方式]",
+          a: "We accept international bank transfer and major credit cards (Visa, Mastercard). A deposit secures your booking, with the balance due before departure. [Draft answer — to be confirmed]",
         },
-        { q: "What is your cancellation policy?", a: "[FAQ_ANSWER — 待补充]" },
+        {
+          q: "What is your cancellation policy?",
+          a: "Full refund if cancelled 30+ days before departure; 50% refund between 15–29 days; no refund within 14 days of departure. [Draft answer — to be confirmed]",
+        },
         {
           q: "Do your guides speak Italian?",
-          a: "[FAQ_ANSWER — 待补充：当前语言支持情况，如实说明]",
+          a: "Our guides are fluent in English and Mandarin; Italian-speaking support can be arranged with advance notice, subject to availability. [Draft answer — to be confirmed]",
         },
       ],
     },
@@ -278,12 +283,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Pagamenti, Semplificati",
-          body: "In Cina si utilizzano prevalentemente sistemi di pagamento mobile non sempre accessibili con le carte internazionali. Ce ne occupiamo in anticipo, così non dovrete pensarci durante il soggiorno. [FAQ_ANSWER — 待补充]",
+          body: "In Cina si utilizzano prevalentemente sistemi di pagamento mobile non sempre accessibili con le carte internazionali. Il nostro team può pre-caricare per voi un'app di pagamento locale o organizzare il cambio contante all'arrivo, così sarete coperti fin dal primo giorno. [Bozza — da confermare]",
         },
         {
           icon: Languages,
           title: "Supporto Linguistico",
-          body: "[FAQ_ANSWER — 待补充]",
+          body: "Le guide parlano correntemente inglese e mandarino. Un supporto in italiano può essere organizzato in anticipo, in base alla disponibilità. [Bozza — da confermare]",
         },
       ],
     },
@@ -293,13 +298,19 @@ const content = {
       items: [
         {
           q: "Questo viaggio è adatto a famiglie con bambini?",
-          a: "[FAQ_ANSWER — 待补充：建议年龄范围与体力要求]",
+          a: "Questo viaggio prevede diverse ore di cammino al giorno, inclusi sentieri di montagna e scalinate irregolari. È generalmente adatto a bambini dagli 8 anni in su, a proprio agio con un'escursione di intensità moderata. [Bozza — da confermare]",
         },
-        { q: "Quali metodi di pagamento accettate?", a: "[FAQ_ANSWER — 待补充：付款方式]" },
-        { q: "Qual è la vostra politica di cancellazione?", a: "[FAQ_ANSWER — 待补充]" },
+        {
+          q: "Quali metodi di pagamento accettate?",
+          a: "Accettiamo bonifico bancario internazionale e le principali carte di credito (Visa, Mastercard). Un acconto conferma la prenotazione, con il saldo dovuto prima della partenza. [Bozza — da confermare]",
+        },
+        {
+          q: "Qual è la vostra politica di cancellazione?",
+          a: "Rimborso totale in caso di cancellazione con più di 30 giorni di anticipo; rimborso del 50% tra 15 e 29 giorni; nessun rimborso entro 14 giorni dalla partenza. [Bozza — da confermare]",
+        },
         {
           q: "Le vostre guide parlano italiano?",
-          a: "[FAQ_ANSWER — 待补充：当前语言支持情况，如实说明]",
+          a: "Le nostre guide parlano correntemente inglese e mandarino; è possibile organizzare un supporto in italiano su richiesta anticipata, in base alla disponibilità. [Bozza — da confermare]",
         },
       ],
     },
@@ -325,13 +336,164 @@ const content = {
       copyright: "© 2026 Hidden Trails Zhangjiajie",
     },
   },
+
+  zh: {
+    nav: { cta: "开启旅程" },
+    hero: {
+      title: "地图尽头，旅程开始",
+      subtitle: "为期四天的私人张家界秘境之旅——由世代居于此山的向导，带您走入隐秘小径。",
+      anchor: "这里正是您曾在银幕上见过的那个世界的灵感之源——以几乎无人能及的方式深入探索。",
+    },
+    philosophy:
+      "大多数游客只是隔着取景框、挤在人群中看张家界。两千年前，一位早已功成名就的人，选择遁入这片山林，而非留在成就了他声名的世界中。我们认为，他看透了什么。这不是观光，这是一场心甘情愿的隐退。",
+    journey: {
+      eyebrow: "旅程",
+      heading: "四天，四个瞬间",
+      stops: [
+        {
+          img: IMG_PEAKS,
+          title: "自己裂开的门",
+          body: "传说这座山曾在瞬间自行裂开——那是上天选择开启的门，而非人工凿成。同一扇门，每年有上万游客经过——但当您抵达时，会通过一条只有本地人知晓的通道，在那唯独属于您的一个时刻穿过它。",
+        },
+        {
+          img: IMG_CLIFF,
+          title: "无人的观景台",
+          before: "这些山峰历经了",
+          emphasis: "3.8亿年",
+          after:
+            "才形成今日的模样。大多数游客只用拍一张照片的时间看它们一眼。而通过只有本地人才走的小径，在光线与人流恰好对您有利的那一个小时，您将拥有它们更久的独享时光。",
+        },
+        {
+          img: IMG_VALLEY,
+          title: "无名的山脊",
+          body: "整整一天，走在任何旅行指南都未曾记载的山脊小径上——由世代山民踏出的路，通往这个省份大多数居民都未曾见过的景致。",
+        },
+        {
+          img: IMG_HERO,
+          imgPosition: "object-bottom",
+          title: "天涯尽头的晚宴",
+          body: "一场私人晚宴，选用山间食材烹制，设于云雾漫过悬崖的边缘——由唯一真正了解这片山脉的人，为您讲述它的故事。",
+        },
+      ],
+    },
+    signature: {
+      eyebrow: "标志性体验",
+      heading: "这场旅程为何与众不同",
+      items: [
+        {
+          icon: Compass,
+          title: "本地土生向导",
+          body: "并非持证导游——而是一位在此山中生活数十年、走遍未标记山径的当地居民。",
+        },
+        {
+          icon: Clock,
+          title: "精准择时",
+          body: "每一条路线的时间安排，都基于多年本地观察积累的光线、天气与人流规律。",
+        },
+        {
+          icon: MapPinOff,
+          title: "地图之外",
+          body: "整整一日的行程，不存在于任何应用程序、旅行指南，或其他行程单中。",
+        },
+      ],
+    },
+    services: {
+      eyebrow: "全包服务",
+      heading: "每个细节，皆已安排",
+      items: [
+        { icon: Car, text: "全程私人专车及司机" },
+        { icon: Users, text: "专属双语向导，土生土长的张家界人" },
+        { icon: Hotel, text: "三晚精心挑选的精品住宿" },
+        { icon: UtensilsCrossed, text: "全程餐饮，包含一场私人山间晚宴" },
+        { icon: ShieldCheck, text: "无隐藏消费、无强制购物、无拼团合并" },
+      ],
+    },
+    trust: {
+      eyebrow: "信任与保障",
+      title: "限量旅程，用心安排",
+      body: "我们每季仅接待有限数量的家庭，并与持牌本地旅行合作方紧密协作，确保全程受监管保障、投保完善，并提供24小时支持。",
+      reviews: ["客户故事即将呈现", "首批旅程将于[季节]启程——成为我们的首批贵宾"],
+    },
+    beforeYouArrive: {
+      eyebrow: "行前须知",
+      lead: "启程之前，有几件事值得您先了解。",
+      items: [
+        {
+          icon: FileCheck,
+          title: "无需签证",
+          body: "意大利护照持有人可凭免签政策入境中国，停留最长30天——完全覆盖本次行程时长。只需护照在抵达之日起有效期满六个月以上即可。",
+        },
+        {
+          icon: CreditCard,
+          title: "支付，全程代劳",
+          body: "中国主要使用移动支付系统，大多数国际银行卡无法直接使用。我们可以为您提前充值本地支付软件，或在抵达时安排现金兑换服务，让您从第一天起就无需担心支付问题。[草拟答案 — 待确认]",
+        },
+        {
+          icon: Languages,
+          title: "语言支持",
+          body: "向导精通英语与普通话。如提前申请，可视情况安排意大利语支持。[草拟答案 — 待确认]",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "常见问题",
+      heading: "常见问题解答",
+      items: [
+        {
+          q: "这次旅程适合带孩子的家庭吗？",
+          a: "本次旅程每天包含数小时步行，涉及不平整的山路和台阶，通常适合8岁以上、能够适应中等强度徒步的儿童。[草拟答案 — 待确认]",
+        },
+        {
+          q: "你们接受哪些付款方式？",
+          a: "我们接受国际银行转账及主要信用卡（Visa、Mastercard）支付。预订需支付定金，尾款于出发前结清。[草拟答案 — 待确认]",
+        },
+        {
+          q: "取消政策是怎样的？",
+          a: "出发前30天以上取消可全额退款；出发前15–29天取消退还50%；出发前14天内取消不予退款。[草拟答案 — 待确认]",
+        },
+        {
+          q: "向导会说意大利语吗？",
+          a: "我们的向导精通英语和普通话；如提前告知，可视情况安排意大利语支持。[草拟答案 — 待确认]",
+        },
+      ],
+    },
+    pricing: {
+      line: "每人价格自 €1,450 起——独一无二的旅程，因为世间再无相似之选。",
+      sub: "最终价格将根据季节、团队人数及路线选择，在简短咨询后确认。",
+    },
+    enquiry: {
+      eyebrow: "咨询",
+      title: "开启旅程",
+      labels: {
+        name: "姓名",
+        email: "邮箱",
+        dates: "预计出行日期",
+        travelers: "出行人数",
+        message: "留言",
+      },
+      submit: "提交咨询",
+      successTitle: "感谢您的咨询",
+      successBody: "我们已收到您的咨询，将尽快与您联系。",
+    },
+    footer: {
+      copyright: "© 2026 隐山小径 张家界",
+    },
+  },
 };
 
 // ---------------------------------------------------------------------------
 // Language context
 // ---------------------------------------------------------------------------
-const LangContext = createContext({ lang: "en", t: content.en, toggle: () => {} });
+const LANGS = ["en", "zh", "it"];
+const LangContext = createContext({ lang: "en", t: content.en, setLang: () => {} });
 const useLang = () => useContext(LangContext);
+
+function headingFont(lang) {
+  return lang === "zh" ? "'Noto Serif SC', serif" : "'Playfair Display', serif";
+}
+function bodyFont(lang) {
+  return lang === "zh" ? "'Noto Sans SC', sans-serif" : "'Inter', sans-serif";
+}
 
 // ---------------------------------------------------------------------------
 // Shared animation variants
@@ -349,18 +511,30 @@ const staggerContainer = {
 // ---------------------------------------------------------------------------
 // Language toggle
 // ---------------------------------------------------------------------------
+const LANG_LABELS = { en: "EN", zh: "中文", it: "IT" };
+
 function LangToggle() {
-  const { lang, toggle } = useLang();
+  const { lang, setLang } = useLang();
   return (
-    <button
-      onClick={toggle}
-      aria-label="Toggle language"
-      className="flex items-center gap-1.5 text-stone-300 hover:text-[#C5A059] transition-colors text-xs tracking-[0.15em]"
+    <div
+      className="flex items-center gap-1.5 text-xs tracking-[0.15em]"
+      role="group"
+      aria-label="Language"
     >
-      <span className={lang === "en" ? "text-[#C5A059]" : ""}>EN</span>
-      <span className="text-stone-600">/</span>
-      <span className={lang === "it" ? "text-[#C5A059]" : ""}>IT</span>
-    </button>
+      {LANGS.map((code, i) => (
+        <React.Fragment key={code}>
+          {i > 0 && <span className="text-stone-600">/</span>}
+          <button
+            onClick={() => setLang(code)}
+            className={`transition-colors ${
+              lang === code ? "text-[#C5A059]" : "text-stone-300 hover:text-[#C5A059]"
+            }`}
+          >
+            {LANG_LABELS[code]}
+          </button>
+        </React.Fragment>
+      ))}
+    </div>
   );
 }
 
@@ -369,7 +543,7 @@ function LangToggle() {
 // ---------------------------------------------------------------------------
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -386,7 +560,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between gap-6">
         <span
           className="text-[#F9F9F9] tracking-[0.15em] text-sm md:text-base uppercase whitespace-nowrap"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
         </span>
@@ -408,7 +582,7 @@ function Navbar() {
 // 2. Hero
 // ---------------------------------------------------------------------------
 function Hero() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#111111]">
       <div className="absolute inset-0">
@@ -427,7 +601,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="text-[#F9F9F9] text-4xl md:text-6xl lg:text-7xl leading-tight max-w-4xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.hero.title}
         </motion.h1>
@@ -464,7 +638,7 @@ function Hero() {
 // 3. Philosophy / Positioning
 // ---------------------------------------------------------------------------
 function Philosophy() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#F9F9F9] py-28 md:py-36 px-6">
       <motion.div
@@ -477,7 +651,7 @@ function Philosophy() {
         <div className="w-10 h-px bg-[#C5A059] mx-auto mb-10" />
         <p
           className="text-xl md:text-2xl lg:text-3xl text-[#111111] leading-snug"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.philosophy}
         </p>
@@ -490,7 +664,7 @@ function Philosophy() {
 // 4. The Journey — alternating image/text blocks
 // ---------------------------------------------------------------------------
 function JourneySection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#111111] py-24 md:py-32">
       <motion.div
@@ -505,7 +679,7 @@ function JourneySection() {
         </p>
         <h2
           className="text-[#F9F9F9] text-3xl md:text-4xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.journey.heading}
         </h2>
@@ -544,7 +718,7 @@ function JourneySection() {
             >
               <h3
                 className="text-[#F9F9F9] text-2xl md:text-3xl mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                style={{ fontFamily: headingFont(lang) }}
               >
                 {stop.title}
               </h3>
@@ -554,7 +728,7 @@ function JourneySection() {
                     {stop.before}
                     <span
                       className="text-[#C5A059] text-lg md:text-xl"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
+                      style={{ fontFamily: headingFont(lang) }}
                     >
                       {stop.emphasis}
                     </span>
@@ -576,7 +750,7 @@ function JourneySection() {
 // 5. Signature Experience — differentiators
 // ---------------------------------------------------------------------------
 function SignatureExperience() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#F9F9F9] py-24 md:py-32 px-6">
       <motion.div
@@ -591,7 +765,7 @@ function SignatureExperience() {
         </p>
         <h2
           className="text-[#111111] text-3xl md:text-4xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.signature.heading}
         </h2>
@@ -613,7 +787,7 @@ function SignatureExperience() {
             <Icon className="mx-auto mb-6 text-[#C5A059]" size={32} strokeWidth={1.2} />
             <h3
               className="text-[#111111] text-lg mb-3"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: headingFont(lang) }}
             >
               {title}
             </h3>
@@ -629,7 +803,7 @@ function SignatureExperience() {
 // 6. All-Inclusive Services
 // ---------------------------------------------------------------------------
 function ServicesGrid() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#111111] py-24 md:py-32 px-6">
       <motion.div
@@ -644,7 +818,7 @@ function ServicesGrid() {
         </p>
         <h2
           className="text-[#F9F9F9] text-3xl md:text-4xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.services.heading}
         </h2>
@@ -672,7 +846,7 @@ function ServicesGrid() {
 // 7. Trust Section
 // ---------------------------------------------------------------------------
 function TrustSection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#F9F9F9] py-24 md:py-32 px-6">
       <motion.div
@@ -687,7 +861,7 @@ function TrustSection() {
         </p>
         <h2
           className="text-[#111111] text-3xl md:text-4xl mb-6"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.trust.title}
         </h2>
@@ -721,7 +895,7 @@ function TrustSection() {
 // 8. Before You Arrive
 // ---------------------------------------------------------------------------
 function BeforeYouArrive() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#111111] py-24 md:py-32 px-6">
       <motion.div
@@ -736,7 +910,7 @@ function BeforeYouArrive() {
         </p>
         <h2
           className="text-[#F9F9F9] text-3xl md:text-4xl mb-4"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.beforeYouArrive.eyebrow}
         </h2>
@@ -755,7 +929,7 @@ function BeforeYouArrive() {
             <Icon className="mb-5 text-[#C5A059]" size={28} strokeWidth={1.2} />
             <h3
               className="text-[#F9F9F9] text-lg mb-3"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: headingFont(lang) }}
             >
               {title}
             </h3>
@@ -798,7 +972,7 @@ function FAQItem({ q, a }) {
 }
 
 function FAQSection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#F9F9F9] py-24 md:py-32 px-6">
       <motion.div
@@ -814,7 +988,7 @@ function FAQSection() {
           </p>
           <h2
             className="text-[#111111] text-3xl md:text-4xl"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: headingFont(lang) }}
           >
             {t.faq.heading}
           </h2>
@@ -833,7 +1007,7 @@ function FAQSection() {
 // 10. Pricing Teaser
 // ---------------------------------------------------------------------------
 function PricingTeaser() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="bg-[#111111] py-24 md:py-28 px-6">
       <motion.div
@@ -846,7 +1020,7 @@ function PricingTeaser() {
         <div className="w-10 h-px bg-[#C5A059] mx-auto mb-10" />
         <p
           className="text-xl md:text-2xl text-[#F9F9F9] leading-snug"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           {t.pricing.line}
         </p>
@@ -860,7 +1034,7 @@ function PricingTeaser() {
 // 11. Enquiry Section
 // ---------------------------------------------------------------------------
 function EnquirySection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -894,7 +1068,7 @@ function EnquirySection() {
           </p>
           <h2
             className="text-[#111111] text-3xl md:text-4xl"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: headingFont(lang) }}
           >
             {t.enquiry.title}
           </h2>
@@ -904,7 +1078,7 @@ function EnquirySection() {
           <div className="border border-[#C5A059] bg-white px-8 py-14 text-center">
             <p
               className="text-[#111111] text-xl mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: headingFont(lang) }}
             >
               {t.enquiry.successTitle}
             </p>
@@ -1006,13 +1180,13 @@ function EnquirySection() {
 // 12. Footer
 // ---------------------------------------------------------------------------
 function Footer() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <footer className="bg-[#111111] border-t border-stone-800 py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <span
           className="text-[#F9F9F9] tracking-[0.15em] text-sm uppercase"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: headingFont(lang) }}
         >
           Hidden Trails <span className="text-stone-500 text-xs align-middle">· 隐山小径</span>
         </span>
@@ -1034,12 +1208,11 @@ function Footer() {
 // ---------------------------------------------------------------------------
 export default function HiddenTrailsLanding() {
   const [lang, setLang] = useState("en");
-  const toggle = () => setLang((l) => (l === "en" ? "it" : "en"));
   const t = content[lang];
 
   return (
-    <LangContext.Provider value={{ lang, t, toggle }}>
-      <div className="min-h-screen bg-[#111111]" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <LangContext.Provider value={{ lang, t, setLang }}>
+      <div className="min-h-screen bg-[#111111]" style={{ fontFamily: bodyFont(lang) }}>
         <Navbar />
         <Hero />
         <motion.div
