@@ -20,6 +20,7 @@ import {
   Mountain,
   DoorOpen,
   Landmark,
+  Calendar,
 } from "lucide-react";
 
 /**
@@ -207,6 +208,11 @@ const content = {
           title: "Language Support",
           body: "Guides are fluent in English and Mandarin. Italian-speaking support can be arranged in advance, subject to availability. [Draft answer — to be confirmed]",
         },
+        {
+          icon: Calendar,
+          title: "Best Time to Visit",
+          body: "Spring (March–May) and autumn (September–November) bring the clearest skies and the most comfortable temperatures — the best conditions for photography and hiking. Summer (June–August) is the rainy season: mist and low cloud are common, atmospheric but sometimes limiting visibility on the peaks. Winter (December–February) is colder, occasionally brings snow to the higher trails, and sees noticeably fewer visitors. We'll help you choose dates to match what you want most from the trip.",
+        },
       ],
     },
     faq: {
@@ -380,6 +386,11 @@ const content = {
           title: "Supporto Linguistico",
           body: "Le guide parlano correntemente inglese e mandarino. Un supporto in italiano può essere organizzato in anticipo, in base alla disponibilità. [Bozza — da confermare]",
         },
+        {
+          icon: Calendar,
+          title: "Periodo Migliore per Partire",
+          body: "La primavera (marzo–maggio) e l'autunno (settembre–novembre) offrono i cieli più tersi e le temperature più piacevoli — le condizioni migliori per fotografia ed escursioni. L'estate (giugno–agosto) è la stagione delle piogge: nebbia e nuvole basse sono comuni, suggestive ma a volte limitano la visibilità sui picchi. L'inverno (dicembre–febbraio) è più freddo, porta occasionalmente neve sui sentieri più alti, con un numero di visitatori nettamente inferiore. Vi aiuteremo a scegliere le date più adatte a ciò che desiderate dal viaggio.",
+        },
       ],
     },
     faq: {
@@ -550,6 +561,11 @@ const content = {
           icon: Languages,
           title: "语言支持",
           body: "向导精通英语与普通话。如提前申请，可视情况安排意大利语支持。[草拟答案 — 待确认]",
+        },
+        {
+          icon: Calendar,
+          title: "最佳出行季节",
+          body: "春季（3-5月）和秋季（9-11月）天气最晴朗、气温最舒适，是拍照和徒步的最佳时段。夏季（6-8月）是雨季，云雾天气较多——虽别有意境，但也可能影响山顶能见度。冬季（12-2月）气温较低，高海拔小径偶有降雪，游客明显减少。我们会根据您最看重的体验，帮您选择合适的出行日期。",
         },
       ],
     },
@@ -1086,14 +1102,14 @@ function BeforeYouArrive() {
       </motion.div>
 
       <motion.div
-        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
+        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
       >
         {t.beforeYouArrive.items.map(({ icon: Icon, title, body }, i) => (
-          <motion.div key={i} variants={fadeUp} className="border border-stone-800 px-8 py-10">
+          <motion.div key={i} variants={fadeUp} className="border border-stone-800 px-6 py-10">
             <Icon className="mb-5 text-[#C5A059]" size={28} strokeWidth={1.2} />
             <h3
               className="text-[#F9F9F9] text-lg mb-3"
