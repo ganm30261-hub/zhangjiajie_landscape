@@ -47,6 +47,37 @@ const IMG_VALLEY =
   "https://images.unsplash.com/photo-1689068359768-837d97acb327?fm=jpg&q=80&w=2000&auto=format&fit=crop";
 
 // ---------------------------------------------------------------------------
+// "Why Zhangjiajie" photography — real, named-landmark photos from Wikimedia
+// Commons (CC BY 2.0 / CC BY-SA 4.0). No freely-licensed photo of the actual
+// Tianmen Fox Fairy stage performance exists publicly; tianmenCave shows the
+// mountain and cave where the show is staged at its foot — swap for an
+// official show photo (licensed from the venue) before a real launch.
+// ---------------------------------------------------------------------------
+const PHOTOS = {
+  pillars: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/38197-Zhangjiajie_(49047512127).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:38197-Zhangjiajie_(49047512127).jpg",
+    alt: "Quartzite sandstone pillars of the Wulingyuan Scenic Area",
+  },
+  tianmenCave: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianmen_38330-Zhangjiajie_(49047525877).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg",
+    alt: "Tianmen Cave, Tianmen Mountain — where the Tianmen Fox Fairy show is staged",
+  },
+  wulingyuan: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?width=1400",
+    credit: "Chensiyuan",
+    license: "CC BY-SA 4.0",
+    source: "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
+    alt: "Panoramic view over the Wulingyuan Scenic Area from Tianzi Mountain",
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Content — all bilingual copy lives here
 // ---------------------------------------------------------------------------
 const content = {
@@ -59,24 +90,25 @@ const content = {
       anchor:
         "The same mountains that inspired a world you've already seen on screen — explored the way almost no one else ever does.",
     },
-    philosophy:
-      "Most travelers see Zhangjiajie through a viewfinder, shoulder to shoulder with a thousand others. Two thousand years ago, a man who had already achieved everything chose to disappear into these mountains rather than stay in the world that made him famous. We think he was onto something. This is not sightseeing. This is disappearance, by choice.",
     whyZhangjiajie: {
       eyebrow: "Why Zhangjiajie",
       heading: "A Landscape Unlike Any Other",
       items: [
         {
           icon: Mountain,
+          photo: PHOTOS.pillars,
           title: "Pillars Found Nowhere Else",
           body: "Thousands of quartz-sandstone pillars rise from the forest floor — a landform so singular that one of them was officially renamed Avatar Hallelujah Mountain after inspiring the floating peaks of Pandora.",
         },
         {
           icon: DoorOpen,
+          photo: PHOTOS.tianmenCave,
           title: "A Door Carved by the Mountain Itself",
-          body: "Tianmen Cave, the world's highest natural archway, is said to have opened in a single moment in 263 AD, when a section of the cliff face collapsed — a threshold locals still call the gate between worlds.",
+          body: "Tianmen Cave, the world's highest natural archway, is said to have opened in a single moment in 263 AD, when a section of the cliff face collapsed — a threshold locals still call the gate between worlds. After dark, the same legend takes the stage at its foot, in the open-air Tianmen Fox Fairy performance.",
         },
         {
           icon: Landmark,
+          photo: PHOTOS.wulingyuan,
           title: "A UNESCO World Heritage Landscape",
           body: "The Wulingyuan Scenic Area, encompassing Zhangjiajie National Forest Park, has been protected as a World Heritage Site since 1992 — one of the rarest karst-and-quartzite landscapes on Earth.",
         },
@@ -231,24 +263,25 @@ const content = {
       anchor:
         "Le stesse montagne che hanno ispirato un mondo che avete già visto sullo schermo — esplorate come quasi nessuno ha mai fatto.",
     },
-    philosophy:
-      "La maggior parte dei viaggiatori vede Zhangjiajie attraverso un obiettivo, spalla a spalla con mille altri. Duemila anni fa, un uomo che aveva già raggiunto tutto scelse di scomparire tra queste montagne, piuttosto che restare nel mondo che lo aveva reso celebre. Crediamo avesse capito qualcosa. Questo non è turismo. È una sparizione, per scelta.",
     whyZhangjiajie: {
       eyebrow: "Perché Zhangjiajie",
       heading: "Un Paesaggio Senza Eguali",
       items: [
         {
           icon: Mountain,
+          photo: PHOTOS.pillars,
           title: "Pilastri che Non Esistono Altrove",
           body: "Migliaia di pilastri di arenaria quarzifera si ergono dal terreno forestale — una conformazione così unica che uno di essi è stato ufficialmente ribattezzato Avatar Hallelujah Mountain, dopo aver ispirato le montagne fluttuanti di Pandora.",
         },
         {
           icon: DoorOpen,
+          photo: PHOTOS.tianmenCave,
           title: "Una Porta Scavata dalla Montagna Stessa",
-          body: "La Grotta di Tianmen, il più alto arco naturale al mondo, si dice si sia aperta in un solo istante nel 263 d.C., quando una porzione della parete rocciosa crollò — una soglia che i locali chiamano ancora la porta tra i mondi.",
+          body: "La Grotta di Tianmen, il più alto arco naturale al mondo, si dice si sia aperta in un solo istante nel 263 d.C., quando una porzione della parete rocciosa crollò — una soglia che i locali chiamano ancora la porta tra i mondi. Dopo il tramonto, la stessa leggenda prende vita ai suoi piedi, nello spettacolo all'aperto Tianmen Fox Fairy.",
         },
         {
           icon: Landmark,
+          photo: PHOTOS.wulingyuan,
           title: "Un Paesaggio Patrimonio dell'UNESCO",
           body: "L'area panoramica di Wulingyuan, che comprende il Parco Forestale Nazionale di Zhangjiajie, è protetta come Patrimonio dell'Umanità dal 1992 — uno dei paesaggi di arenaria quarzifera più rari al mondo.",
         },
@@ -401,24 +434,25 @@ const content = {
       subtitle: "为期四天的私人张家界秘境之旅——由世代居于此山的向导，带您走入隐秘小径。",
       anchor: "这里正是您曾在银幕上见过的那个世界的灵感之源——以几乎无人能及的方式深入探索。",
     },
-    philosophy:
-      "大多数游客只是隔着取景框、挤在人群中看张家界。两千年前，一位早已功成名就的人，选择遁入这片山林，而非留在成就了他声名的世界中。我们认为，他看透了什么。这不是观光，这是一场心甘情愿的隐退。",
     whyZhangjiajie: {
       eyebrow: "为什么是张家界",
       heading: "举世无双的地貌",
       items: [
         {
           icon: Mountain,
+          photo: PHOTOS.pillars,
           title: "绝无仅有的峰林",
           body: "数千座石英砂岩峰柱拔地而起——如此独特的地貌，其中一座更因启发了《阿凡达》潘多拉星球的悬浮山，而被正式更名为「阿凡达·哈利路亚山」。",
         },
         {
           icon: DoorOpen,
+          photo: PHOTOS.tianmenCave,
           title: "山体自行开凿的门",
-          body: "天门洞是世界上已知海拔最高的天然穿山溶洞，相传于公元263年山体崩裂的瞬间豁然洞开——当地人至今仍称它为通往异界的门。",
+          body: "天门洞是世界上已知海拔最高的天然穿山溶洞，相传于公元263年山体崩裂的瞬间豁然洞开——当地人至今仍称它为通往异界的门。入夜后，同一个传说会在洞前的《天门狐仙》实景演出中重新上演。",
         },
         {
           icon: Landmark,
+          photo: PHOTOS.wulingyuan,
           title: "世界自然遗产地貌",
           body: "武陵源风景名胜区（含张家界国家森林公园）自1992年起被列入世界自然遗产名录——是地球上最稀有的石英砂岩峰林地貌之一。",
         },
@@ -719,28 +753,26 @@ function Hero() {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Philosophy / Positioning
+// Attributed photo — real Wikimedia Commons photography with a credit caption
 // ---------------------------------------------------------------------------
-function Philosophy() {
-  const { t, lang } = useLang();
+function AttributedPhoto({ photo, className = "" }) {
   return (
-    <section className="bg-[#F9F9F9] py-28 md:py-36 px-6">
-      <motion.div
-        className="max-w-3xl mx-auto text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={fadeUp}
+    <div className={`relative aspect-[4/3] overflow-hidden bg-stone-900 ${className}`}>
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <a
+        href={photo.source}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-1.5 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors"
       >
-        <div className="w-10 h-px bg-[#C5A059] mx-auto mb-10" />
-        <p
-          className="text-xl md:text-2xl lg:text-3xl text-[#111111] leading-snug"
-          style={{ fontFamily: headingFont(lang) }}
-        >
-          {t.philosophy}
-        </p>
-      </motion.div>
-    </section>
+        © {photo.credit} · {photo.license}
+      </a>
+    </div>
   );
 }
 
@@ -750,7 +782,7 @@ function Philosophy() {
 function WhyZhangjiajie() {
   const { t, lang } = useLang();
   return (
-    <section className="bg-[#F9F9F9] py-24 md:py-32 px-6 border-t border-stone-200">
+    <section className="bg-[#F9F9F9] py-24 md:py-32 px-6">
       <motion.div
         className="max-w-3xl mx-auto text-center mb-16"
         initial="hidden"
@@ -776,16 +808,19 @@ function WhyZhangjiajie() {
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
       >
-        {t.whyZhangjiajie.items.map(({ icon: Icon, title, body }, i) => (
-          <motion.div key={i} variants={fadeUp} className="text-center px-4">
-            <Icon className="mx-auto mb-6 text-[#C5A059]" size={32} strokeWidth={1.2} />
-            <h3
-              className="text-[#111111] text-lg mb-3"
-              style={{ fontFamily: headingFont(lang) }}
-            >
-              {title}
-            </h3>
-            <p className="text-stone-500 text-sm leading-[1.7]">{body}</p>
+        {t.whyZhangjiajie.items.map(({ icon: Icon, photo, title, body }, i) => (
+          <motion.div key={i} variants={fadeUp}>
+            <AttributedPhoto photo={photo} className="mb-6" />
+            <div className="px-2">
+              <Icon className="mb-4 text-[#C5A059]" size={26} strokeWidth={1.2} />
+              <h3
+                className="text-[#111111] text-lg mb-3"
+                style={{ fontFamily: headingFont(lang) }}
+              >
+                {title}
+              </h3>
+              <p className="text-stone-500 text-sm leading-[1.7]">{body}</p>
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -1354,7 +1389,6 @@ export default function HiddenTrailsLanding() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <Philosophy />
           <WhyZhangjiajie />
           <JourneySection />
           <SignatureExperience />
