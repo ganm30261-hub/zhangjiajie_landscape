@@ -84,7 +84,7 @@ const content = {
   en: {
     nav: { cta: "Begin Your Journey" },
     hero: {
-      title: "Where the Map Ends, the Journey Begins",
+      title: "Where the Trail Leaves the Map",
       subtitle:
         "A private 4-day passage into Zhangjiajie's hidden trails — guided by those who call these mountains home.",
       anchor:
@@ -257,7 +257,7 @@ const content = {
   it: {
     nav: { cta: "Inizia il Tuo Viaggio" },
     hero: {
-      title: "Dove Finisce la Mappa, Inizia il Viaggio",
+      title: "Dove il Sentiero Lascia la Mappa",
       subtitle:
         "Un passaggio privato di 4 giorni tra i sentieri nascosti di Zhangjiajie — guidati da chi chiama casa queste montagne.",
       anchor:
@@ -430,7 +430,7 @@ const content = {
   zh: {
     nav: { cta: "开启旅程" },
     hero: {
-      title: "地图尽头，旅程开始",
+      title: "小径离开地图之处，旅程开始",
       subtitle: "为期四天的私人张家界秘境之旅——由世代居于此山的向导，带您走入隐秘小径。",
       anchor: "这里正是您曾在银幕上见过的那个世界的灵感之源——以几乎无人能及的方式深入探索。",
     },
