@@ -161,6 +161,14 @@ const content = {
       anchor:
         "The same mountains that inspired a world you've already seen on screen — explored the way almost no one else ever does.",
     },
+    tripFacts: {
+      items: [
+        { icon: Calendar, label: "4 Days / 3 Nights" },
+        { icon: Users, label: "Private Tour, 1–6 Travelers" },
+        { icon: ShieldCheck, label: "Guide, Driver, Hotel & Meals Included" },
+      ],
+      priceLine: "From €1,250 per person",
+    },
     breather: {
       line: "The mountains set the schedule. We simply learned, over years, when to listen.",
     },
@@ -235,11 +243,13 @@ const content = {
         {
           img: IMG_PEAKS,
           variant: "full",
+          day: "Day 1",
           title: "Tianmen Mountain: The Door That Opened Itself",
           body: "Legend says this mountain once tore itself open in a single moment — a door the heavens chose to open, not one that was built. After dark, the same legend comes alive on stage at the mountain's base, in the Tianmen Fox Fairy performance — an open-air retelling of the fox spirit said to have crossed through that door into the world of men. By day, you'll pass through it yourself: through a passage only locals know, at the one hour it belongs to no one but you.",
         },
         {
           img: IMG_CLIFF,
+          day: "Day 2",
           title: "Zhangjiajie National Forest Park: The Empty Overlook",
           before: "These peaks took ",
           emphasis: "380 million years",
@@ -251,12 +261,14 @@ const content = {
           credit: PHOTOS.yangjiajie.credit,
           license: PHOTOS.yangjiajie.license,
           source: PHOTOS.yangjiajie.source,
+          day: "Day 3 · Morning",
           title: "Yangjiajie & Laowuchang: The Quiet Side of Wulingyuan",
           body: "A 16-kilometre ridge trail through Yangjiajie leads to the Natural Great Wall, a formation of parallel stone walls that no shuttle bus reaches. Laowuchang, reachable only on foot, opens onto the terraced farmland of Sky Garden and the rock spires known as Warriors' Gathering — both ranked among Zhangjiajie's ten finest views, yet rarely crowded. Our local partner chooses the exact route on the day, based on the season, the weather, and your group's pace.",
         },
         {
           img: IMG_HERO,
           imgPosition: "object-bottom",
+          day: "Day 3 · Evening",
           title: "Dinner at the Edge of the World",
           body: "A private meal, prepared with mountain-grown ingredients, served where the cliffs fall away into cloud — the stories of these mountains told by the one person who truly knows them.",
         },
@@ -264,6 +276,7 @@ const content = {
           img: IMG_VALLEY,
           imgPosition: "object-top",
           variant: "full",
+          day: "Day 4",
           title: "Zhangjiajie Grand Canyon: The Bridge Above the Clouds",
           body: "One of the world's longest and highest glass-bottomed bridges spans the canyon floor, roughly 300 metres below — a gentler final morning before the journey home, walked at whatever pace you choose.",
         },
@@ -398,6 +411,14 @@ const content = {
       anchor:
         "Le stesse montagne che hanno ispirato un mondo che avete già visto sullo schermo — esplorate come quasi nessuno ha mai fatto.",
     },
+    tripFacts: {
+      items: [
+        { icon: Calendar, label: "4 Giorni / 3 Notti" },
+        { icon: Users, label: "Viaggio Privato, 1–6 Viaggiatori" },
+        { icon: ShieldCheck, label: "Guida, Autista, Hotel e Pasti Inclusi" },
+      ],
+      priceLine: "A partire da €1.250 a persona",
+    },
     breather: {
       line: "Sono le montagne a dettare i tempi. Noi abbiamo solo imparato, con gli anni, quando ascoltarle.",
     },
@@ -472,11 +493,13 @@ const content = {
         {
           img: IMG_PEAKS,
           variant: "full",
+          day: "Giorno 1",
           title: "Monte Tianmen: La Porta che si Aprì da Sola",
           body: "La leggenda narra che questa montagna si sia aperta in un solo istante — una porta che il cielo scelse di aprire, non che l'uomo costruì. Dopo il tramonto, la stessa leggenda prende vita sul palco ai piedi della montagna, nello spettacolo Tianmen Fox Fairy — una rappresentazione all'aperto dello spirito volpe che, si narra, attraversò quella porta per entrare nel mondo degli uomini. Di giorno, la attraverserete voi stessi: attraverso un passaggio noto solo ai locali, nell'unica ora in cui appartiene solo a voi.",
         },
         {
           img: IMG_CLIFF,
+          day: "Giorno 2",
           title: "Parco Forestale Nazionale di Zhangjiajie: Il Belvedere Vuoto",
           before: "Queste vette hanno impiegato ",
           emphasis: "380 milioni di anni",
@@ -488,12 +511,14 @@ const content = {
           credit: PHOTOS.yangjiajie.credit,
           license: PHOTOS.yangjiajie.license,
           source: PHOTOS.yangjiajie.source,
+          day: "Giorno 3 · Mattina",
           title: "Yangjiajie e Laowuchang: Il Lato Tranquillo di Wulingyuan",
           body: "Un sentiero di cresta di 16 chilometri attraverso Yangjiajie conduce alla Grande Muraglia Naturale, una formazione di pareti di roccia parallele non raggiungibile in navetta. Laowuchang, accessibile solo a piedi, si apre sulle terrazze coltivate del Giardino Sospeso e sulle guglie rocciose note come il Raduno dei Guerrieri — entrambi tra i dieci panorami più belli di Zhangjiajie, eppure raramente affollati. Il nostro partner locale sceglie il percorso esatto il giorno stesso, in base alla stagione, al meteo e al ritmo del vostro gruppo.",
         },
         {
           img: IMG_HERO,
           imgPosition: "object-bottom",
+          day: "Giorno 3 · Sera",
           title: "Cena ai Confini del Mondo",
           body: "Un pasto privato, preparato con ingredienti di montagna, servito dove le scogliere si perdono tra le nuvole — le storie di queste montagne raccontate da chi le conosce davvero.",
         },
@@ -501,6 +526,7 @@ const content = {
           img: IMG_VALLEY,
           imgPosition: "object-top",
           variant: "full",
+          day: "Giorno 4",
           title: "Grand Canyon di Zhangjiajie: Il Ponte Sopra le Nuvole",
           body: "Uno dei ponti di vetro più lunghi e alti al mondo attraversa il canyon, a circa 300 metri dal fondovalle — un'ultima mattinata più rilassata prima del viaggio di ritorno, percorsa al ritmo che preferite.",
         },
@@ -633,6 +659,14 @@ const content = {
       subtitle: "为期四天的私人行程，由本地向导全程陪同，行程时机避开人流与光线不佳的时段，走的是任何软件、攻略都查不到的小径——其余的一切，都由我们安排好。",
       anchor: "这里正是您曾在银幕上见过的那个世界的灵感之源——以几乎无人能及的方式深入探索。",
     },
+    tripFacts: {
+      items: [
+        { icon: Calendar, label: "4天3晚" },
+        { icon: Users, label: "私人团，1-6人" },
+        { icon: ShieldCheck, label: "向导、司机、酒店、餐饮全包" },
+      ],
+      priceLine: "每人价格自 €1,250 起",
+    },
     breather: {
       line: "从来不是我们安排大山的日程，而是这些年，我们学会了在对的时刻聆听它。",
     },
@@ -706,11 +740,13 @@ const content = {
         {
           img: IMG_PEAKS,
           variant: "full",
+          day: "第1天",
           title: "天门山：自己裂开的门",
           body: "传说这座山曾在瞬间自行裂开——那是上天选择开启的门，而非人工凿成。入夜后，同一个传说会在山脚下的《天门狐仙》实景演出中重现——讲述那只据说曾穿过此门、来到人间的狐仙的故事。白天，您将亲自穿过它——通过一条只有本地人知晓的通道，在那唯独属于您的一个时刻。",
         },
         {
           img: IMG_CLIFF,
+          day: "第2天",
           title: "张家界国家森林公园：无人的观景台",
           before: "这些山峰历经了",
           emphasis: "3.8亿年",
@@ -722,12 +758,14 @@ const content = {
           credit: PHOTOS.yangjiajie.credit,
           license: PHOTOS.yangjiajie.license,
           source: PHOTOS.yangjiajie.source,
+          day: "第3天 · 上午",
           title: "杨家界与老屋场：武陵源清净的一面",
           body: "杨家界16公里的山脊小径通向天然长城——由平行石墙构成的地质奇观，观光车无法到达。老屋场则只能徒步抵达，可见「空中田园」的层叠梯田与「神兵聚会」石峰群——两处都位列「张家界十大名景」，却鲜有人潮。具体路线由地接社根据当季情况、天气与您团队的体力水平，现场为您安排。",
         },
         {
           img: IMG_HERO,
           imgPosition: "object-bottom",
+          day: "第3天 · 晚间",
           title: "天涯尽头的晚宴",
           body: "一场私人晚宴，选用山间食材烹制，设于云雾漫过悬崖的边缘——由唯一真正了解这片山脉的人，为您讲述它的故事。",
         },
@@ -735,6 +773,7 @@ const content = {
           img: IMG_VALLEY,
           imgPosition: "object-top",
           variant: "full",
+          day: "第4天",
           title: "张家界大峡谷：云端之上的桥",
           body: "世界上最长、最高的玻璃桥之一横跨峡谷，距谷底约300米——在归程之前，以您喜欢的节奏，度过一个更从容的最后清晨。",
         },
@@ -1150,6 +1189,38 @@ function Hero() {
 }
 
 // ---------------------------------------------------------------------------
+// Trip Facts — a scannable spec strip so a first-time reader knows exactly
+// what's being sold (duration, group size, inclusions, price) before any of
+// the mood/differentiation copy that follows.
+// ---------------------------------------------------------------------------
+function TripFacts() {
+  const { t } = useLang();
+  return (
+    <section className="bg-[#0d0d0d] border-b border-stone-800 py-8 px-6">
+      <motion.div
+        className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
+        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+          {t.tripFacts.items.map(({ icon: Icon, label }, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              <Icon className="text-[#C5A059] shrink-0" size={20} strokeWidth={1.3} />
+              <span className="text-stone-300 text-xs md:text-sm whitespace-nowrap">{label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="text-[#C5A059] text-sm md:text-base tracking-wide whitespace-nowrap">
+          {t.tripFacts.priceLine}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Attributed photo — real Wikimedia Commons photography with a credit caption
 // ---------------------------------------------------------------------------
 function AttributedPhoto({ gallery, title, className = "" }) {
@@ -1412,6 +1483,11 @@ function JourneySection() {
                     viewport={{ once: true, amount: 0.4 }}
                     variants={fadeUp}
                   >
+                    {stop.day && (
+                      <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-4">
+                        {stop.day}
+                      </p>
+                    )}
                     <h3
                       className="text-[#F9F9F9] text-3xl md:text-5xl mb-5 max-w-2xl"
                       style={{ fontFamily: headingFont(lang) }}
@@ -1485,6 +1561,11 @@ function JourneySection() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeUp}
               >
+                {stop.day && (
+                  <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-3">
+                    {stop.day}
+                  </p>
+                )}
                 <h3
                   className="text-[#F9F9F9] text-2xl md:text-3xl mb-4"
                   style={{ fontFamily: headingFont(lang) }}
@@ -2039,6 +2120,7 @@ export default function HiddenTrailsLanding() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
+            <TripFacts />
             <SignatureExperience />
             <Breather />
             <WhyZhangjiajie />
