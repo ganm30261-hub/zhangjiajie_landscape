@@ -139,6 +139,13 @@ const PHOTOS = {
     source: "https://commons.wikimedia.org/wiki/File:Zhangjiajie_(223137313).jpeg",
     alt: "Mist and rain over the forested peaks of Zhangjiajie",
   },
+  yangjiajie: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Yangjiajie.jpg?width=1400",
+    credit: "Yoo Chung",
+    license: "CC BY-SA 2.5",
+    source: "https://commons.wikimedia.org/wiki/File:Yangjiajie.jpg",
+    alt: "Yangjiajie scenic area, Zhangjiajie",
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -240,9 +247,12 @@ const content = {
             " to become what they are. Most visitors see them for the length of a photograph. Through trails only locals walk, timed to the one hour the light and the crowds align in your favor, you'll have them to yourself far longer than that.",
         },
         {
-          img: IMG_VALLEY,
+          img: PHOTOS.yangjiajie.src,
+          credit: PHOTOS.yangjiajie.credit,
+          license: PHOTOS.yangjiajie.license,
+          source: PHOTOS.yangjiajie.source,
           title: "Yangjiajie & Laowuchang: The Quiet Side of Wulingyuan",
-          body: "Away from the cable cars and crowded viewing platforms, Yangjiajie's ridgeline trails and the still-undeveloped Laowuchang area are favored by backpackers and hikers rather than day-trippers. Our local partner chooses the exact route on the day, based on the season, the weather, and your group's pace.",
+          body: "A 16-kilometre ridge trail through Yangjiajie leads to the Natural Great Wall, a formation of parallel stone walls that no shuttle bus reaches. Laowuchang, reachable only on foot, opens onto the terraced farmland of Sky Garden and the rock spires known as Warriors' Gathering — both ranked among Zhangjiajie's ten finest views, yet rarely crowded. Our local partner chooses the exact route on the day, based on the season, the weather, and your group's pace.",
         },
         {
           img: IMG_HERO,
@@ -474,9 +484,12 @@ const content = {
             " a diventare ciò che sono. La maggior parte dei visitatori le osserva per il tempo di una fotografia. Attraverso sentieri noti solo ai locali, calibrati sull'unica ora in cui luce e flussi turistici giocano a vostro favore, le avrete tutte per voi molto più a lungo.",
         },
         {
-          img: IMG_VALLEY,
+          img: PHOTOS.yangjiajie.src,
+          credit: PHOTOS.yangjiajie.credit,
+          license: PHOTOS.yangjiajie.license,
+          source: PHOTOS.yangjiajie.source,
           title: "Yangjiajie e Laowuchang: Il Lato Tranquillo di Wulingyuan",
-          body: "Lontano dalle funivie e dalle piattaforme panoramiche affollate, i sentieri di cresta di Yangjiajie e l'area ancora non sviluppata di Laowuchang sono preferiti dagli escursionisti e dai viaggiatori zaino in spalla, piuttosto che dai turisti di passaggio. Il nostro partner locale sceglie il percorso esatto il giorno stesso, in base alla stagione, al meteo e al ritmo del vostro gruppo.",
+          body: "Un sentiero di cresta di 16 chilometri attraverso Yangjiajie conduce alla Grande Muraglia Naturale, una formazione di pareti di roccia parallele non raggiungibile in navetta. Laowuchang, accessibile solo a piedi, si apre sulle terrazze coltivate del Giardino Sospeso e sulle guglie rocciose note come il Raduno dei Guerrieri — entrambi tra i dieci panorami più belli di Zhangjiajie, eppure raramente affollati. Il nostro partner locale sceglie il percorso esatto il giorno stesso, in base alla stagione, al meteo e al ritmo del vostro gruppo.",
         },
         {
           img: IMG_HERO,
@@ -705,9 +718,12 @@ const content = {
             "才形成今日的模样。大多数游客只用拍一张照片的时间看它们一眼。而通过只有本地人才走的小径，在光线与人流恰好对您有利的那一个小时，您将拥有它们更久的独享时光。",
         },
         {
-          img: IMG_VALLEY,
+          img: PHOTOS.yangjiajie.src,
+          credit: PHOTOS.yangjiajie.credit,
+          license: PHOTOS.yangjiajie.license,
+          source: PHOTOS.yangjiajie.source,
           title: "杨家界与老屋场：武陵源清净的一面",
-          body: "远离缆车与拥挤观景台，杨家界的山脊小径与尚未开发的老屋场片区，更受背包客和徒步爱好者青睐，而非普通跟团游客。具体路线由地接社根据当季情况、天气与您团队的体力水平，现场为您安排。",
+          body: "杨家界16公里的山脊小径通向天然长城——由平行石墙构成的地质奇观，观光车无法到达。老屋场则只能徒步抵达，可见「空中田园」的层叠梯田与「神兵聚会」石峰群——两处都位列「张家界十大名景」，却鲜有人潮。具体路线由地接社根据当季情况、天气与您团队的体力水平，现场为您安排。",
         },
         {
           img: IMG_HERO,
@@ -1427,7 +1443,20 @@ function JourneySection() {
               >
                 <div
                   className="relative aspect-[4/3] overflow-hidden bg-stone-900 cursor-pointer"
-                  onClick={() => open([{ src: stop.img, alt: stop.title }], stop.title)}
+                  onClick={() =>
+                    open(
+                      [
+                        {
+                          src: stop.img,
+                          alt: stop.title,
+                          credit: stop.credit,
+                          license: stop.license,
+                          source: stop.source,
+                        },
+                      ],
+                      stop.title
+                    )
+                  }
                 >
                   <img
                     src={stop.img}
@@ -1436,6 +1465,17 @@ function JourneySection() {
                     className={`w-full h-full object-cover ${stop.imgPosition || ""}`}
                   />
                   <ExpandHint />
+                  {stop.credit && (
+                    <a
+                      href={stop.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute bottom-1.5 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors"
+                    >
+                      © {stop.credit} · {stop.license}
+                    </a>
+                  )}
                 </div>
               </motion.div>
               <motion.div
