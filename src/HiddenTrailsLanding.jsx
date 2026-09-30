@@ -241,8 +241,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "A Trail Chosen for You",
-          body: "Rather than a fixed itinerary, our local partner selects a lesser-known trail on the day — based on the season, the weather, and your group's pace. A full day away from the ticketed scenic areas, on paths mapped only by the people who live here.",
+          title: "Yangjiajie & Laowuchang: The Quiet Side of Wulingyuan",
+          body: "Away from the cable cars and crowded viewing platforms, Yangjiajie's ridgeline trails and the still-undeveloped Laowuchang area are favored by backpackers and hikers rather than day-trippers. Our local partner chooses the exact route on the day, based on the season, the weather, and your group's pace.",
         },
         {
           img: IMG_HERO,
@@ -475,8 +475,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "Un Sentiero Scelto per Voi",
-          body: "Anziché un itinerario fisso, il nostro partner locale sceglie un sentiero meno conosciuto il giorno stesso — in base alla stagione, al meteo e al ritmo del vostro gruppo. Un'intera giornata lontano dalle aree turistiche a pagamento, su percorsi conosciuti solo da chi vive qui.",
+          title: "Yangjiajie e Laowuchang: Il Lato Tranquillo di Wulingyuan",
+          body: "Lontano dalle funivie e dalle piattaforme panoramiche affollate, i sentieri di cresta di Yangjiajie e l'area ancora non sviluppata di Laowuchang sono preferiti dagli escursionisti e dai viaggiatori zaino in spalla, piuttosto che dai turisti di passaggio. Il nostro partner locale sceglie il percorso esatto il giorno stesso, in base alla stagione, al meteo e al ritmo del vostro gruppo.",
         },
         {
           img: IMG_HERO,
@@ -706,8 +706,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "为您现场挑选的小径",
-          body: "这一天没有固定行程——我们的本地地接社会根据当季情况、天气与您团队的体力水平，现场为您挑选一条较少人知的徒步路线。整整一天，远离门票景区，走在只有当地人才熟悉的小径上。",
+          title: "杨家界与老屋场：武陵源清净的一面",
+          body: "远离缆车与拥挤观景台，杨家界的山脊小径与尚未开发的老屋场片区，更受背包客和徒步爱好者青睐，而非普通跟团游客。具体路线由地接社根据当季情况、天气与您团队的体力水平，现场为您安排。",
         },
         {
           img: IMG_HERO,
