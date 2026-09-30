@@ -22,6 +22,10 @@ import {
   Landmark,
   Calendar,
   Umbrella,
+  Flower2,
+  CloudRain,
+  Leaf,
+  Snowflake,
 } from "lucide-react";
 
 /**
@@ -119,6 +123,42 @@ const content = {
         },
       ],
     },
+    bestTimeToVisit: {
+      eyebrow: "Best Time to Visit",
+      heading: "Choose Your Zhangjiajie",
+      intro:
+        "Every season shows these mountains differently. We'll help you pick the dates that match what you want most from the trip.",
+      seasons: [
+        {
+          icon: Flower2,
+          label: "Spring",
+          months: "March – May",
+          tag: "Great for Photography",
+          body: "Clear skies, mild temperatures, and wildflowers along the lower trails — one of the two best windows for crisp, distant views.",
+        },
+        {
+          icon: CloudRain,
+          label: "Summer",
+          months: "June – August",
+          tag: "Rainy Season",
+          body: "Warm and humid, with frequent mist and low cloud. Atmospheric for photos of the peaks emerging from fog, but visibility can be limited.",
+        },
+        {
+          icon: Leaf,
+          label: "Autumn",
+          months: "September – November",
+          tag: "Best Overall",
+          body: "The clearest air of the year, comfortable temperatures, and golden foliage on the lower slopes — most travelers' first choice.",
+        },
+        {
+          icon: Snowflake,
+          label: "Winter",
+          months: "December – February",
+          tag: "Quiet Season",
+          body: "Colder, with occasional snow dusting the higher peaks and noticeably fewer visitors — a starker, quieter version of the same landscape.",
+        },
+      ],
+    },
     journey: {
       eyebrow: "The Journey",
       heading: "Four Days, Five Moments",
@@ -191,8 +231,8 @@ const content = {
     },
     trust: {
       eyebrow: "Trust & Assurance",
-      title: "A Small Number of Journeys, Each One Considered",
-      body: "We are BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), based in Zhangjiajie, Hunan. We accept a limited number of families each season, include travel insurance arranged on your behalf, and provide 24-hour support throughout your journey.",
+      title: "Every Journey, Thoughtfully Arranged",
+      body: "Each itinerary is planned individually around your family — never a fixed template. We are BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), based in Zhangjiajie, Hunan. Every journey includes travel insurance arranged on your behalf and 24-hour support from the moment you land.",
       reviews: ["Guest story coming soon", "First journeys departing [season] — be among our founding guests"],
     },
     beforeYouArrive: {
@@ -207,17 +247,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Payments, Handled",
-          body: "Payment is made through a secure international third-party platform, accepting all major credit cards (Visa, Mastercard, Amex) — no local payment app needed on your end.",
+          body: "Booking your journey is simple: pay us by major credit card (Visa, Mastercard, Amex) through a secure international platform. Day-to-day spending in China is different — most local vendors, taxis, and small restaurants run on Alipay or WeChat Pay rather than cash or foreign cards. Both now accept international Visa/Mastercard, and we'll help you set one up before or upon arrival.",
         },
         {
           icon: Languages,
           title: "Language Support",
           body: "Guides are fluent in Mandarin and English. Support in other languages, including Italian, can be arranged for an additional fee via a specialized interpreter-guide, subject to availability.",
-        },
-        {
-          icon: Calendar,
-          title: "Best Time to Visit",
-          body: "Spring (March–May) and autumn (September–November) bring the clearest skies and the most comfortable temperatures — the best conditions for photography and hiking. Summer (June–August) is the rainy season: mist and low cloud are common, atmospheric but sometimes limiting visibility on the peaks. Winter (December–February) is colder, occasionally brings snow to the higher trails, and sees noticeably fewer visitors. We'll help you choose dates to match what you want most from the trip.",
         },
       ],
     },
@@ -308,6 +343,42 @@ const content = {
         },
       ],
     },
+    bestTimeToVisit: {
+      eyebrow: "Periodo Migliore per Visitare",
+      heading: "Scegliete il Vostro Zhangjiajie",
+      intro:
+        "Ogni stagione mostra queste montagne in modo diverso. Vi aiuteremo a scegliere le date più adatte a ciò che desiderate dal viaggio.",
+      seasons: [
+        {
+          icon: Flower2,
+          label: "Primavera",
+          months: "Marzo – Maggio",
+          tag: "Ideale per Fotografia",
+          body: "Cieli tersi, temperature miti e fiori selvatici lungo i sentieri più bassi — una delle due finestre migliori per vedute nitide e distanti.",
+        },
+        {
+          icon: CloudRain,
+          label: "Estate",
+          months: "Giugno – Agosto",
+          tag: "Stagione delle Piogge",
+          body: "Caldo e umido, con nebbia frequente e nuvole basse. Suggestivo per fotografare le vette che emergono dalla foschia, ma la visibilità può essere limitata.",
+        },
+        {
+          icon: Leaf,
+          label: "Autunno",
+          months: "Settembre – Novembre",
+          tag: "Il Migliore in Assoluto",
+          body: "L'aria più limpida dell'anno, temperature piacevoli e foliage dorato sui pendii più bassi — la prima scelta della maggior parte dei viaggiatori.",
+        },
+        {
+          icon: Snowflake,
+          label: "Inverno",
+          months: "Dicembre – Febbraio",
+          tag: "Stagione Tranquilla",
+          body: "Più freddo, con occasionali spolverate di neve sulle vette più alte e visitatori nettamente inferiori — una versione più essenziale e silenziosa dello stesso paesaggio.",
+        },
+      ],
+    },
     journey: {
       eyebrow: "Il Viaggio",
       heading: "Quattro Giorni, Cinque Momenti",
@@ -380,8 +451,8 @@ const content = {
     },
     trust: {
       eyebrow: "Fiducia e Garanzie",
-      title: "Un Numero Limitato di Viaggi, Ognuno Curato nei Dettagli",
-      body: "Siamo BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), con sede a Zhangjiajie, Hunan. Accogliamo un numero limitato di famiglie ogni stagione, includiamo un'assicurazione di viaggio organizzata per voi, e offriamo assistenza 24 ore su 24 per tutta la durata del viaggio.",
+      title: "Ogni Viaggio, Curato con Attenzione",
+      body: "Ogni itinerario è pianificato individualmente attorno alla vostra famiglia — mai un modello fisso. Siamo BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), con sede a Zhangjiajie, Hunan. Ogni viaggio include un'assicurazione di viaggio organizzata per voi e assistenza 24 ore su 24 dal momento in cui atterrate.",
       reviews: ["Storia degli ospiti in arrivo", "Prime partenze [stagione] — tra i nostri primi ospiti"],
     },
     beforeYouArrive: {
@@ -396,17 +467,12 @@ const content = {
         {
           icon: CreditCard,
           title: "Pagamenti, Semplificati",
-          body: "Il pagamento avviene tramite una piattaforma internazionale di terze parti sicura, che accetta tutte le principali carte di credito (Visa, Mastercard, Amex) — non è necessaria alcuna app di pagamento locale da parte vostra.",
+          body: "Prenotare il viaggio è semplice: pagateci con la vostra carta di credito principale (Visa, Mastercard, Amex) tramite una piattaforma internazionale sicura. La spesa quotidiana in Cina è diversa — la maggior parte dei negozi locali, taxi e piccoli ristoranti funzionano con Alipay o WeChat Pay piuttosto che contanti o carte straniere. Entrambi ora accettano carte Visa/Mastercard internazionali collegate, e vi aiuteremo a configurarne una prima o all'arrivo.",
         },
         {
           icon: Languages,
           title: "Supporto Linguistico",
           body: "Le guide parlano correntemente mandarino e inglese. Il supporto in altre lingue, incluso l'italiano, può essere organizzato con un costo aggiuntivo tramite una guida-interprete specializzata, in base alla disponibilità.",
-        },
-        {
-          icon: Calendar,
-          title: "Periodo Migliore per Partire",
-          body: "La primavera (marzo–maggio) e l'autunno (settembre–novembre) offrono i cieli più tersi e le temperature più piacevoli — le condizioni migliori per fotografia ed escursioni. L'estate (giugno–agosto) è la stagione delle piogge: nebbia e nuvole basse sono comuni, suggestive ma a volte limitano la visibilità sui picchi. L'inverno (dicembre–febbraio) è più freddo, porta occasionalmente neve sui sentieri più alti, con un numero di visitatori nettamente inferiore. Vi aiuteremo a scegliere le date più adatte a ciò che desiderate dal viaggio.",
         },
       ],
     },
@@ -495,6 +561,41 @@ const content = {
         },
       ],
     },
+    bestTimeToVisit: {
+      eyebrow: "最佳出行季节",
+      heading: "选择您的张家界",
+      intro: "每个季节呈现的张家界都不尽相同。我们会根据您最看重的体验，帮您选择合适的出行日期。",
+      seasons: [
+        {
+          icon: Flower2,
+          label: "春季",
+          months: "3月 – 5月",
+          tag: "拍照绝佳",
+          body: "天气晴朗，气温宜人，低海拔小径野花盛开——是全年两个最佳观景窗口期之一。",
+        },
+        {
+          icon: CloudRain,
+          label: "夏季",
+          months: "6月 – 8月",
+          tag: "雨季",
+          body: "温暖潮湿，云雾天气频繁。山峰在云海中若隐若现，别有意境，但能见度可能受限。",
+        },
+        {
+          icon: Leaf,
+          label: "秋季",
+          months: "9月 – 11月",
+          tag: "全年首选",
+          body: "全年空气最通透的季节，气温舒适，低海拔山坡层林尽染——大多数游客的第一选择。",
+        },
+        {
+          icon: Snowflake,
+          label: "冬季",
+          months: "12月 – 2月",
+          tag: "静谧时节",
+          body: "气温较低，高海拔山峰偶有薄雪，游客明显减少——呈现同一片风景更清冷、更静谧的一面。",
+        },
+      ],
+    },
     journey: {
       eyebrow: "旅程",
       heading: "四天，五个瞬间",
@@ -567,8 +668,8 @@ const content = {
     },
     trust: {
       eyebrow: "信任与保障",
-      title: "限量旅程，用心安排",
-      body: "我们是贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.），总部位于湖南张家界。我们每季仅接待有限数量的家庭，全程为您安排旅行保险，并提供24小时支持。",
+      title: "每一程旅途，皆用心安排",
+      body: "每一份行程都为您的家庭单独规划——从不是套用模板。我们是贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.），总部位于湖南张家界。每一程旅途都包含由我们统一安排的旅行保险，并提供落地后的24小时支持。",
       reviews: ["客户故事即将呈现", "首批旅程将于[季节]启程——成为我们的首批贵宾"],
     },
     beforeYouArrive: {
@@ -583,17 +684,12 @@ const content = {
         {
           icon: CreditCard,
           title: "支付，全程代劳",
-          body: "支付通过安全的国际第三方支付平台完成，支持所有主流信用卡（Visa、Mastercard、运通等）——您无需自行准备任何本地支付软件。",
+          body: "预订行程很简单：通过安全的国际支付平台，用主流信用卡（Visa、Mastercard、运通等）支付给我们即可。但在中国境内的日常消费不一样——大多数本地商户、出租车和小餐馆使用支付宝或微信支付，而非现金或境外银行卡。这两个平台现在都支持绑定国际维萨/万事达信用卡，我们会在出发前或抵达后帮您完成设置。",
         },
         {
           icon: Languages,
           title: "语言支持",
           body: "向导精通普通话和英语。如需其他语言（包括意大利语）支持，可加价安排专职翻译向导，视具体情况而定。",
-        },
-        {
-          icon: Calendar,
-          title: "最佳出行季节",
-          body: "春季（3-5月）和秋季（9-11月）天气最晴朗、气温最舒适，是拍照和徒步的最佳时段。夏季（6-8月）是雨季，云雾天气较多——虽别有意境，但也可能影响山顶能见度。冬季（12-2月）气温较低，高海拔小径偶有降雪，游客明显减少。我们会根据您最看重的体验，帮您选择合适的出行日期。",
         },
       ],
     },
@@ -876,6 +972,94 @@ function WhyZhangjiajie() {
             </div>
           </motion.div>
         ))}
+      </motion.div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Best Time to Visit — seasonal planning, its own dedicated section
+// ---------------------------------------------------------------------------
+const MONTH_SEASON = [
+  "winter", "winter", "spring", "spring", "spring", "summer",
+  "summer", "summer", "autumn", "autumn", "autumn", "winter",
+];
+const SEASON_BAR_STYLE = {
+  spring: "bg-[#C5A059]/30",
+  summer: "bg-stone-700",
+  autumn: "bg-[#C5A059]",
+  winter: "bg-stone-300",
+};
+
+function BestTimeToVisit() {
+  const { t, lang } = useLang();
+  return (
+    <section className="bg-[#F9F9F9] py-24 md:py-32 px-6 border-t border-stone-200">
+      <motion.div
+        className="max-w-2xl mx-auto text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
+        <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-4">
+          {t.bestTimeToVisit.eyebrow}
+        </p>
+        <h2
+          className="text-[#111111] text-3xl md:text-4xl mb-5"
+          style={{ fontFamily: headingFont(lang) }}
+        >
+          {t.bestTimeToVisit.heading}
+        </h2>
+        <p className="text-stone-500 text-sm md:text-base leading-[1.7]">
+          {t.bestTimeToVisit.intro}
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-14"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerContainer}
+      >
+        {t.bestTimeToVisit.seasons.map(({ icon: Icon, label, months, tag, body }, i) => (
+          <motion.div key={i} variants={fadeUp} className="text-center px-2">
+            <Icon className="mx-auto mb-5 text-[#C5A059]" size={30} strokeWidth={1.2} />
+            <h3
+              className="text-[#111111] text-lg mb-1"
+              style={{ fontFamily: headingFont(lang) }}
+            >
+              {label}
+            </h3>
+            <p className="text-stone-400 text-xs uppercase tracking-wider mb-3">{months}</p>
+            <span className="inline-block text-[10px] uppercase tracking-wider text-[#C5A059] border border-[#C5A059]/40 rounded-full px-3 py-1 mb-4">
+              {tag}
+            </span>
+            <p className="text-stone-500 text-sm leading-[1.7]">{body}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        className="max-w-3xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
+        <div className="flex gap-0.5 h-3">
+          {MONTH_SEASON.map((season, i) => (
+            <div key={i} className={`flex-1 ${SEASON_BAR_STYLE[season]}`} />
+          ))}
+        </div>
+        <div className="flex justify-between text-stone-400 text-[10px] uppercase tracking-wider mt-2">
+          <span>Jan</span>
+          <span>Apr</span>
+          <span>Jul</span>
+          <span>Oct</span>
+          <span>Dec</span>
+        </div>
       </motion.div>
     </section>
   );
@@ -1482,6 +1666,7 @@ export default function HiddenTrailsLanding() {
           transition={{ duration: 0.3 }}
         >
           <WhyZhangjiajie />
+          <BestTimeToVisit />
           <JourneySection />
           <SignatureExperience />
           <ServicesGrid />
