@@ -26,6 +26,10 @@ import {
   CloudRain,
   Leaf,
   Snowflake,
+  X,
+  Maximize2,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 /**
@@ -238,7 +242,12 @@ const content = {
       eyebrow: "Trust & Assurance",
       title: "Every Journey, Thoughtfully Arranged",
       body: "Each itinerary is planned individually around your family — never a fixed template. We are BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), based in Zhangjiajie, Hunan. Every journey includes travel insurance arranged on your behalf and 24-hour support from the moment you land.",
-      reviews: ["Guest story coming soon", "First journeys departing [season] — be among our founding guests"],
+      story: {
+        label: "A Sample Guest Story",
+        quote: "We didn't expect to have Tianmen Cave to ourselves at sunrise — but there we were, just our family and our guide, watching the mist pull back from the door in the mountain. Three days later: dinner on a ridge that appears on no map we could find, listening to stories about these peaks no guidebook had told us. It never felt like a tour. It felt like being let in on something.",
+        disclaimer: "Illustrative only — a real guest account will replace this once our first journeys depart.",
+      },
+      foundingNote: "First journeys departing [season] — be among our founding guests",
     },
     beforeYouArrive: {
       eyebrow: "Before You Arrive",
@@ -463,7 +472,12 @@ const content = {
       eyebrow: "Fiducia e Garanzie",
       title: "Ogni Viaggio, Curato con Attenzione",
       body: "Ogni itinerario è pianificato individualmente attorno alla vostra famiglia — mai un modello fisso. Siamo BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司), con sede a Zhangjiajie, Hunan. Ogni viaggio include un'assicurazione di viaggio organizzata per voi e assistenza 24 ore su 24 dal momento in cui atterrate.",
-      reviews: ["Storia degli ospiti in arrivo", "Prime partenze [stagione] — tra i nostri primi ospiti"],
+      story: {
+        label: "Una Storia di Esempio",
+        quote: "Non ci aspettavamo di avere la Grotta di Tianmen tutta per noi all'alba — eppure eravamo lì, solo la nostra famiglia e la nostra guida, a guardare la nebbia ritirarsi da quella porta tra le montagne. Tre giorni dopo, una cena su una cresta che non compare su nessuna mappa che abbiamo trovato, ad ascoltare storie su queste vette che nessuna guida avrebbe potuto raccontarci. Non è mai sembrato un tour. È sembrato essere ammessi in qualcosa.",
+        disclaimer: "Solo a scopo illustrativo — sarà sostituita da un racconto reale non appena partiranno i primi viaggi.",
+      },
+      foundingNote: "Prime partenze [stagione] — tra i nostri primi ospiti",
     },
     beforeYouArrive: {
       eyebrow: "Prima di Partire",
@@ -685,7 +699,12 @@ const content = {
       eyebrow: "信任与保障",
       title: "每一程旅途，皆用心安排",
       body: "每一份行程都为您的家庭单独规划——从不是套用模板。我们是贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.），总部位于湖南张家界。每一程旅途都包含由我们统一安排的旅行保险，并提供落地后的24小时支持。",
-      reviews: ["客户故事即将呈现", "首批旅程将于[季节]启程——成为我们的首批贵宾"],
+      story: {
+        label: "示例客户故事",
+        quote: "我们没想到能在日出时分独享天门洞——但那天真的只有我们一家和向导，看着晨雾从山间那扇「门」缓缓散去。三天后，我们在一处任何地图都找不到的山脊上共进晚餐，听着这些山峰的故事，是任何攻略都写不出来的。这从来不像是一次跟团游，倒像是被邀请走进了什么秘密。",
+        disclaimer: "仅为示例——首批旅程正式出发后，将替换为真实客户的分享。",
+      },
+      foundingNote: "首批旅程将于[季节]启程——成为我们的首批贵宾",
     },
     beforeYouArrive: {
       eyebrow: "行前须知",
@@ -775,6 +794,141 @@ function headingFont(lang) {
 }
 function bodyFont(lang) {
   return lang === "zh" ? "'Noto Sans SC', sans-serif" : "'Inter', sans-serif";
+}
+
+// ---------------------------------------------------------------------------
+// Lightbox — a full-screen "photo exhibition" viewer. Each opener passes a
+// `gallery` array (currently one photo per landmark, since that's all we have
+// licensed today) plus a title; wired for multiple photos so gallery arrays
+// can simply grow to 2+ images later without any other code changing.
+// ---------------------------------------------------------------------------
+const LightboxContext = createContext({ open: () => {} });
+const useLightbox = () => useContext(LightboxContext);
+
+function Lightbox({ state, onClose, onNav }) {
+  const { gallery, index, title } = state;
+  if (!gallery) return null;
+  const photo = gallery[index];
+  const hasMultiple = gallery.length > 1;
+
+  React.useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNav(1);
+      if (e.key === "ArrowLeft") onNav(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, onNav]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center px-4 py-10"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors"
+      >
+        <X size={28} strokeWidth={1.2} />
+      </button>
+
+      {hasMultiple && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onNav(-1);
+          }}
+          aria-label="Previous photo"
+          className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+        >
+          <ChevronLeft size={36} strokeWidth={1} />
+        </button>
+      )}
+
+      <img
+        src={photo.src}
+        alt={photo.alt || title}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[75vh] max-w-full md:max-w-[85vw] object-contain"
+      />
+
+      {hasMultiple && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onNav(1);
+          }}
+          aria-label="Next photo"
+          className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+        >
+          <ChevronRight size={36} strokeWidth={1} />
+        </button>
+      )}
+
+      <div className="mt-5 text-center max-w-xl px-4" onClick={(e) => e.stopPropagation()}>
+        {title && <p className="text-[#F9F9F9] text-sm md:text-base mb-1">{title}</p>}
+        {photo.credit && (
+          <a
+            href={photo.source}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/40 hover:text-white/70 text-xs transition-colors"
+          >
+            © {photo.credit} · {photo.license}
+          </a>
+        )}
+        {hasMultiple && (
+          <div className="flex items-center justify-center gap-1.5 mt-4">
+            {gallery.map((_, i) => (
+              <span
+                key={i}
+                className={`w-1.5 h-1.5 rounded-full ${
+                  i === index ? "bg-[#C5A059]" : "bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+function LightboxProvider({ children }) {
+  const [state, setState] = useState({ gallery: null, index: 0, title: "" });
+
+  const open = (gallery, title, index = 0) => setState({ gallery, index, title });
+  const close = () => setState({ gallery: null, index: 0, title: "" });
+  const nav = (dir) =>
+    setState((s) => ({
+      ...s,
+      index: (s.index + dir + s.gallery.length) % s.gallery.length,
+    }));
+
+  return (
+    <LightboxContext.Provider value={{ open }}>
+      {children}
+      {state.gallery && <Lightbox state={state} onClose={close} onNav={nav} />}
+    </LightboxContext.Provider>
+  );
+}
+
+// A small "view larger" hint shown on hover over any gallery-enabled photo
+function ExpandHint() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/20 transition-colors cursor-pointer group">
+      <Maximize2
+        className="text-white opacity-0 group-hover:opacity-90 transition-opacity"
+        size={22}
+        strokeWidth={1.3}
+      />
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -919,19 +1073,25 @@ function Hero() {
 // ---------------------------------------------------------------------------
 // Attributed photo — real Wikimedia Commons photography with a credit caption
 // ---------------------------------------------------------------------------
-function AttributedPhoto({ photo, className = "" }) {
+function AttributedPhoto({ photo, title, className = "" }) {
+  const { open } = useLightbox();
   return (
-    <div className={`relative aspect-[4/3] overflow-hidden bg-stone-900 ${className}`}>
+    <div
+      className={`relative aspect-[4/3] overflow-hidden bg-stone-900 cursor-pointer ${className}`}
+      onClick={() => open([photo], title)}
+    >
       <img
         src={photo.src}
         alt={photo.alt}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover"
       />
+      <ExpandHint />
       <a
         href={photo.source}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
         className="absolute bottom-1.5 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors"
       >
         © {photo.credit} · {photo.license}
@@ -1004,7 +1164,7 @@ function WhyZhangjiajie() {
       >
         {t.whyZhangjiajie.items.map(({ icon: Icon, photo, title, body }, i) => (
           <motion.div key={i} variants={fadeUp}>
-            <AttributedPhoto photo={photo} className="mb-6" />
+            <AttributedPhoto photo={photo} title={title} className="mb-6" />
             <div className="px-2">
               <Icon className="mb-4 text-[#C5A059]" size={26} strokeWidth={1.2} />
               <h3
@@ -1115,6 +1275,7 @@ function BestTimeToVisit() {
 // ---------------------------------------------------------------------------
 function JourneySection() {
   const { t, lang } = useLang();
+  const { open } = useLightbox();
   return (
     <section className="bg-[#111111] py-24 md:py-32">
       <motion.div
@@ -1140,7 +1301,10 @@ function JourneySection() {
           if (stop.variant === "full") {
             return (
               <div key={i} className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-                <div className="relative h-[60vh] md:h-[75vh] overflow-hidden">
+                <div
+                  className="relative h-[60vh] md:h-[75vh] overflow-hidden cursor-pointer"
+                  onClick={() => open([{ src: stop.img, alt: stop.title }], stop.title)}
+                >
                   <img
                     src={stop.img}
                     alt={stop.title}
@@ -1150,6 +1314,9 @@ function JourneySection() {
                     }`}
                   />
                   <div className="absolute inset-0 bg-black/50" />
+                  <div className="absolute bottom-5 right-5 flex items-center gap-1.5 text-white/70 text-xs uppercase tracking-wider">
+                    <Maximize2 size={14} strokeWidth={1.3} />
+                  </div>
                   <motion.div
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
                     initial="hidden"
@@ -1186,13 +1353,17 @@ function JourneySection() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeUp}
               >
-                <div className="aspect-[4/3] overflow-hidden bg-stone-900">
+                <div
+                  className="relative aspect-[4/3] overflow-hidden bg-stone-900 cursor-pointer"
+                  onClick={() => open([{ src: stop.img, alt: stop.title }], stop.title)}
+                >
                   <img
                     src={stop.img}
                     alt={stop.title}
                     loading="lazy"
                     className={`w-full h-full object-cover ${stop.imgPosition || ""}`}
                   />
+                  <ExpandHint />
                 </div>
               </motion.div>
               <motion.div
@@ -1361,21 +1532,29 @@ function TrustSection() {
       </motion.div>
 
       <motion.div
-        className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
+        className="max-w-2xl mx-auto"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainer}
+        variants={fadeUp}
       >
-        {t.trust.reviews.map((review, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            className="bg-white border border-stone-200 p-8 flex items-center justify-center text-center"
+        <div className="bg-white border border-stone-200 px-8 py-10 md:px-12 md:py-12">
+          <p className="text-[#C5A059] text-xs tracking-[0.3em] uppercase mb-5">
+            {t.trust.story.label}
+          </p>
+          <p
+            className="text-[#111111] text-lg md:text-xl leading-[1.8] italic mb-6"
+            style={{ fontFamily: headingFont(lang) }}
           >
-            <p className="text-stone-400 italic text-sm leading-[1.8]">{review}</p>
-          </motion.div>
-        ))}
+            "{t.trust.story.quote}"
+          </p>
+          <div className="border-t border-stone-200 pt-4">
+            <p className="text-stone-400 text-[11px] uppercase tracking-wider leading-[1.6]">
+              {t.trust.story.disclaimer}
+            </p>
+          </div>
+        </div>
+        <p className="text-center text-stone-500 text-sm italic mt-8">{t.trust.foundingNote}</p>
       </motion.div>
     </section>
   );
@@ -1738,29 +1917,31 @@ export default function HiddenTrailsLanding() {
 
   return (
     <LangContext.Provider value={{ lang, t, setLang }}>
-      <div className="min-h-screen bg-[#111111]" style={{ fontFamily: bodyFont(lang) }}>
-        <Navbar />
-        <Hero />
-        <motion.div
-          key={lang}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <SignatureExperience />
-          <Breather />
-          <WhyZhangjiajie />
-          <BestTimeToVisit />
-          <JourneySection />
-          <ServicesGrid />
-          <TrustSection />
-          <BeforeYouArrive />
-          <FAQSection />
-          <PricingTeaser />
-          <EnquirySection />
-        </motion.div>
-        <Footer />
-      </div>
+      <LightboxProvider>
+        <div className="min-h-screen bg-[#111111]" style={{ fontFamily: bodyFont(lang) }}>
+          <Navbar />
+          <Hero />
+          <motion.div
+            key={lang}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SignatureExperience />
+            <Breather />
+            <WhyZhangjiajie />
+            <BestTimeToVisit />
+            <JourneySection />
+            <ServicesGrid />
+            <TrustSection />
+            <BeforeYouArrive />
+            <FAQSection />
+            <PricingTeaser />
+            <EnquirySection />
+          </motion.div>
+          <Footer />
+        </div>
+      </LightboxProvider>
     </LangContext.Provider>
   );
 }
