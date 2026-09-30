@@ -241,8 +241,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "The Ridge Without a Name",
-          body: "A full day on a trail that appears in no guidebook — carved by generations of mountain villagers, leading to a vista most residents of this province will never see.",
+          title: "A Trail Chosen for You",
+          body: "Rather than a fixed itinerary, our local partner selects a lesser-known trail on the day — based on the season, the weather, and your group's pace. A full day away from the ticketed scenic areas, on paths mapped only by the people who live here.",
         },
         {
           img: IMG_HERO,
@@ -475,8 +475,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "La Cresta Senza Nome",
-          body: "Un'intera giornata su un sentiero che non appare in nessuna guida — tracciato da generazioni di montanari, che conduce a una vista che la maggior parte degli abitanti di questa provincia non vedrà mai.",
+          title: "Un Sentiero Scelto per Voi",
+          body: "Anziché un itinerario fisso, il nostro partner locale sceglie un sentiero meno conosciuto il giorno stesso — in base alla stagione, al meteo e al ritmo del vostro gruppo. Un'intera giornata lontano dalle aree turistiche a pagamento, su percorsi conosciuti solo da chi vive qui.",
         },
         {
           img: IMG_HERO,
@@ -706,8 +706,8 @@ const content = {
         },
         {
           img: IMG_VALLEY,
-          title: "无名的山脊",
-          body: "整整一天，走在任何旅行指南都未曾记载的山脊小径上——由世代山民踏出的路，通往这个省份大多数居民都未曾见过的景致。",
+          title: "为您现场挑选的小径",
+          body: "这一天没有固定行程——我们的本地地接社会根据当季情况、天气与您团队的体力水平，现场为您挑选一条较少人知的徒步路线。整整一天，远离门票景区，走在只有当地人才熟悉的小径上。",
         },
         {
           img: IMG_HERO,
