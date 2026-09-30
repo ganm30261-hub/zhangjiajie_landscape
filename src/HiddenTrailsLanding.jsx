@@ -37,7 +37,12 @@ import {
  * Single-file React component. Fonts loaded via Google Fonts <link> in index.html:
  *   Playfair Display + Inter (EN/IT, Latin charset covers Italian),
  *   Noto Serif SC + Noto Sans SC (中文).
- * Photography: Unsplash License (free for commercial use, no attribution required).
+ * Photography: a mix of Unsplash License images (free commercial use, no attribution
+ * required) and real, named-landmark photos from Wikimedia Commons under CC BY 2.0 /
+ * CC BY-SA 3.0/4.0 (commercial use permitted, attribution required — shown as on-image
+ * credit captions). Both are genuinely, legally licensed for commercial use; this is a
+ * deliberate, final choice rather than a placeholder pending official tourism-board
+ * imagery — see PHOTOS below and the credit captions rendered by AttributedPhoto.
  * All copy lives in `content = { en: {...}, zh: {...}, it: {...} }` below; the language
  * toggle in the navbar sets a single `lang` state and every section reads from content[lang].
  * Company, payment, cancellation, insurance, language, and flight-logistics copy reflects
@@ -61,12 +66,13 @@ const IMG_VALLEY =
 
 // ---------------------------------------------------------------------------
 // "Why Zhangjiajie" photography — real, named-landmark photos from Wikimedia
-// Commons (CC BY 2.0 / CC BY-SA 3.0/4.0). No freely-licensed photo of the
-// actual Tianmen Fox Fairy stage performance exists publicly; tianmenCave
-// shows the mountain and cave where the show is staged at its foot — swap
-// for an official show photo (licensed from the venue) before a real launch.
-// Each landmark now carries 2-3 real photos so its lightbox reads as a small
-// gallery rather than a single enlarged image.
+// Commons (CC BY 2.0 / CC BY-SA 3.0/4.0), all legally licensed for commercial
+// use. This is the settled photo strategy, not a placeholder. Note: no
+// freely-licensed photo of the actual Tianmen Fox Fairy stage performance
+// exists publicly (confirmed by search); tianmenCave shows the mountain and
+// cave where the show is staged at its foot instead. Each landmark carries
+// 2-3 real photos so its lightbox reads as a small gallery rather than a
+// single enlarged image.
 // ---------------------------------------------------------------------------
 const PHOTOS = {
   pillars: {
