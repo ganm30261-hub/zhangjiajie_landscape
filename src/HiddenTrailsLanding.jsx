@@ -95,9 +95,12 @@ const content = {
     hero: {
       title: "Where the Trail Leaves the Map",
       subtitle:
-        "A private 4-day passage into Zhangjiajie's hidden trails — guided by those who call these mountains home.",
+        "A private 4-day journey with a native guide, timed around the light and the crowds, on trails no app or guidebook lists — everything else, arranged.",
       anchor:
         "The same mountains that inspired a world you've already seen on screen — explored the way almost no one else ever does.",
+    },
+    breather: {
+      line: "The mountains set the schedule. We simply learned, over years, when to listen.",
     },
     whyZhangjiajie: {
       eyebrow: "Why Zhangjiajie",
@@ -165,6 +168,7 @@ const content = {
       stops: [
         {
           img: IMG_PEAKS,
+          variant: "full",
           title: "Tianmen Mountain: The Door That Opened Itself",
           body: "Legend says this mountain once tore itself open in a single moment — a door the heavens chose to open, not one that was built. After dark, the same legend comes alive on stage at the mountain's base, in the Tianmen Fox Fairy performance — an open-air retelling of the fox spirit said to have crossed through that door into the world of men. By day, you'll pass through it yourself: through a passage only locals know, at the one hour it belongs to no one but you.",
         },
@@ -190,13 +194,14 @@ const content = {
         {
           img: IMG_VALLEY,
           imgPosition: "object-top",
+          variant: "full",
           title: "Zhangjiajie Grand Canyon: The Bridge Above the Clouds",
           body: "One of the world's longest and highest glass-bottomed bridges spans the canyon floor, roughly 300 metres below — a gentler final morning before the journey home, walked at whatever pace you choose.",
         },
       ],
     },
     signature: {
-      eyebrow: "Signature Experience",
+      eyebrow: "Why Book With Us",
       heading: "What Makes This Journey Different",
       items: [
         {
@@ -315,9 +320,12 @@ const content = {
     hero: {
       title: "Dove il Sentiero Lascia la Mappa",
       subtitle:
-        "Un passaggio privato di 4 giorni tra i sentieri nascosti di Zhangjiajie — guidati da chi chiama casa queste montagne.",
+        "Un viaggio privato di 4 giorni con una guida nativa, calibrato su luce e flussi turistici, su sentieri che non compaiono in nessuna app o guida — tutto il resto, organizzato per voi.",
       anchor:
         "Le stesse montagne che hanno ispirato un mondo che avete già visto sullo schermo — esplorate come quasi nessuno ha mai fatto.",
+    },
+    breather: {
+      line: "Sono le montagne a dettare i tempi. Noi abbiamo solo imparato, con gli anni, quando ascoltarle.",
     },
     whyZhangjiajie: {
       eyebrow: "Perché Zhangjiajie",
@@ -385,6 +393,7 @@ const content = {
       stops: [
         {
           img: IMG_PEAKS,
+          variant: "full",
           title: "Monte Tianmen: La Porta che si Aprì da Sola",
           body: "La leggenda narra che questa montagna si sia aperta in un solo istante — una porta che il cielo scelse di aprire, non che l'uomo costruì. Dopo il tramonto, la stessa leggenda prende vita sul palco ai piedi della montagna, nello spettacolo Tianmen Fox Fairy — una rappresentazione all'aperto dello spirito volpe che, si narra, attraversò quella porta per entrare nel mondo degli uomini. Di giorno, la attraverserete voi stessi: attraverso un passaggio noto solo ai locali, nell'unica ora in cui appartiene solo a voi.",
         },
@@ -410,13 +419,14 @@ const content = {
         {
           img: IMG_VALLEY,
           imgPosition: "object-top",
+          variant: "full",
           title: "Grand Canyon di Zhangjiajie: Il Ponte Sopra le Nuvole",
           body: "Uno dei ponti di vetro più lunghi e alti al mondo attraversa il canyon, a circa 300 metri dal fondovalle — un'ultima mattinata più rilassata prima del viaggio di ritorno, percorsa al ritmo che preferite.",
         },
       ],
     },
     signature: {
-      eyebrow: "Esperienza Distintiva",
+      eyebrow: "Perché Prenotare con Noi",
       heading: "Cosa Rende Unico Questo Viaggio",
       items: [
         {
@@ -534,8 +544,11 @@ const content = {
     nav: { cta: "开启旅程" },
     hero: {
       title: "小径离开地图之处，旅程开始",
-      subtitle: "为期四天的私人张家界秘境之旅——由世代居于此山的向导，带您走入隐秘小径。",
+      subtitle: "为期四天的私人行程，由本地向导全程陪同，行程时机避开人流与光线不佳的时段，走的是任何软件、攻略都查不到的小径——其余的一切，都由我们安排好。",
       anchor: "这里正是您曾在银幕上见过的那个世界的灵感之源——以几乎无人能及的方式深入探索。",
+    },
+    breather: {
+      line: "从来不是我们安排大山的日程，而是这些年，我们学会了在对的时刻聆听它。",
     },
     whyZhangjiajie: {
       eyebrow: "为什么是张家界",
@@ -602,6 +615,7 @@ const content = {
       stops: [
         {
           img: IMG_PEAKS,
+          variant: "full",
           title: "天门山：自己裂开的门",
           body: "传说这座山曾在瞬间自行裂开——那是上天选择开启的门，而非人工凿成。入夜后，同一个传说会在山脚下的《天门狐仙》实景演出中重现——讲述那只据说曾穿过此门、来到人间的狐仙的故事。白天，您将亲自穿过它——通过一条只有本地人知晓的通道，在那唯独属于您的一个时刻。",
         },
@@ -627,13 +641,14 @@ const content = {
         {
           img: IMG_VALLEY,
           imgPosition: "object-top",
+          variant: "full",
           title: "张家界大峡谷：云端之上的桥",
           body: "世界上最长、最高的玻璃桥之一横跨峡谷，距谷底约300米——在归程之前，以您喜欢的节奏，度过一个更从容的最后清晨。",
         },
       ],
     },
     signature: {
-      eyebrow: "标志性体验",
+      eyebrow: "为什么选择我们",
       heading: "这场旅程为何与众不同",
       items: [
         {
@@ -926,6 +941,36 @@ function AttributedPhoto({ photo, className = "" }) {
 }
 
 // ---------------------------------------------------------------------------
+// Breather — a full-bleed photo pause between the "why us" and "why here"
+// sections, letting the landscape carry the transition instead of more copy
+// ---------------------------------------------------------------------------
+function Breather() {
+  const { t } = useLang();
+  return (
+    <section className="relative h-[55vh] md:h-[70vh] w-full overflow-hidden bg-[#111111]">
+      <img
+        src={IMG_CLIFF}
+        alt="Cliffs and mist over the Zhangjiajie canyon"
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      <motion.div
+        className="relative z-10 h-full flex items-center justify-center text-center px-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
+        <p className="text-[#F9F9F9] text-lg md:text-2xl italic max-w-xl leading-[1.7]">
+          {t.breather.line}
+        </p>
+      </motion.div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Why Zhangjiajie — the geography and legend that make this place distinct
 // ---------------------------------------------------------------------------
 function WhyZhangjiajie() {
@@ -1091,61 +1136,98 @@ function JourneySection() {
       </motion.div>
 
       <div className="max-w-6xl mx-auto px-6 space-y-20 md:space-y-32">
-        {t.journey.stops.map((stop, i) => (
-          <div
-            key={i}
-            className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 ${
-              i % 2 === 1 ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            <motion.div
-              className="w-full md:w-1/2"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeUp}
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-stone-900">
-                <img
-                  src={stop.img}
-                  alt={stop.title}
-                  loading="lazy"
-                  className={`w-full h-full object-cover ${stop.imgPosition || ""}`}
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              className="w-full md:w-1/2 text-center md:text-left"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeUp}
-            >
-              <h3
-                className="text-[#F9F9F9] text-2xl md:text-3xl mb-4"
-                style={{ fontFamily: headingFont(lang) }}
-              >
-                {stop.title}
-              </h3>
-              <p className="text-stone-400 text-base leading-[1.8]">
-                {stop.emphasis ? (
-                  <>
-                    {stop.before}
-                    <span
-                      className="text-[#C5A059] text-lg md:text-xl"
+        {t.journey.stops.map((stop, i) => {
+          if (stop.variant === "full") {
+            return (
+              <div key={i} className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+                <div className="relative h-[60vh] md:h-[75vh] overflow-hidden">
+                  <img
+                    src={stop.img}
+                    alt={stop.title}
+                    loading="lazy"
+                    className={`absolute inset-0 w-full h-full object-cover ${
+                      stop.imgPosition || ""
+                    }`}
+                  />
+                  <div className="absolute inset-0 bg-black/50" />
+                  <motion.div
+                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.4 }}
+                    variants={fadeUp}
+                  >
+                    <h3
+                      className="text-[#F9F9F9] text-3xl md:text-5xl mb-5 max-w-2xl"
                       style={{ fontFamily: headingFont(lang) }}
                     >
-                      {stop.emphasis}
-                    </span>
-                    {stop.after}
-                  </>
-                ) : (
-                  stop.body
-                )}
-              </p>
-            </motion.div>
-          </div>
-        ))}
+                      {stop.title}
+                    </h3>
+                    <p className="text-stone-200 text-base md:text-lg leading-[1.8] max-w-xl">
+                      {stop.body}
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={i}
+              className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 ${
+                i % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              <motion.div
+                className="w-full md:w-1/2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeUp}
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-stone-900">
+                  <img
+                    src={stop.img}
+                    alt={stop.title}
+                    loading="lazy"
+                    className={`w-full h-full object-cover ${stop.imgPosition || ""}`}
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                className="w-full md:w-1/2 text-center md:text-left"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeUp}
+              >
+                <h3
+                  className="text-[#F9F9F9] text-2xl md:text-3xl mb-4"
+                  style={{ fontFamily: headingFont(lang) }}
+                >
+                  {stop.title}
+                </h3>
+                <p className="text-stone-400 text-base leading-[1.8]">
+                  {stop.emphasis ? (
+                    <>
+                      {stop.before}
+                      <span
+                        className="text-[#C5A059] text-lg md:text-xl"
+                        style={{ fontFamily: headingFont(lang) }}
+                      >
+                        {stop.emphasis}
+                      </span>
+                      {stop.after}
+                    </>
+                  ) : (
+                    stop.body
+                  )}
+                </p>
+              </motion.div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -1665,10 +1747,11 @@ export default function HiddenTrailsLanding() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
+          <SignatureExperience />
+          <Breather />
           <WhyZhangjiajie />
           <BestTimeToVisit />
           <JourneySection />
-          <SignatureExperience />
           <ServicesGrid />
           <TrustSection />
           <BeforeYouArrive />
