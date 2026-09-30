@@ -61,10 +61,12 @@ const IMG_VALLEY =
 
 // ---------------------------------------------------------------------------
 // "Why Zhangjiajie" photography — real, named-landmark photos from Wikimedia
-// Commons (CC BY 2.0 / CC BY-SA 4.0). No freely-licensed photo of the actual
-// Tianmen Fox Fairy stage performance exists publicly; tianmenCave shows the
-// mountain and cave where the show is staged at its foot — swap for an
-// official show photo (licensed from the venue) before a real launch.
+// Commons (CC BY 2.0 / CC BY-SA 3.0/4.0). No freely-licensed photo of the
+// actual Tianmen Fox Fairy stage performance exists publicly; tianmenCave
+// shows the mountain and cave where the show is staged at its foot — swap
+// for an official show photo (licensed from the venue) before a real launch.
+// Each landmark now carries 2-3 real photos so its lightbox reads as a small
+// gallery rather than a single enlarged image.
 // ---------------------------------------------------------------------------
 const PHOTOS = {
   pillars: {
@@ -74,6 +76,20 @@ const PHOTOS = {
     source: "https://commons.wikimedia.org/wiki/File:38197-Zhangjiajie_(49047512127).jpg",
     alt: "Quartzite sandstone pillars of the Wulingyuan Scenic Area",
   },
+  pillars2: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Avatar_World_37845-Zhangjiajie_(49046811673).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:Avatar_World_37845-Zhangjiajie_(49046811673).jpg",
+    alt: "Avatar World, Yuanjiajie — the pinnacles that inspired the film's floating mountains",
+  },
+  pillars3: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Avatar_World_38391-Zhangjiajie_(49047531272).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:Avatar_World_38391-Zhangjiajie_(49047531272).jpg",
+    alt: "Avatar World, Yuanjiajie — quartzite pinnacles rising from the valley",
+  },
   tianmenCave: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianmen_38330-Zhangjiajie_(49047525877).jpg?width=1400",
     credit: "xiquinhosilva",
@@ -81,12 +97,41 @@ const PHOTOS = {
     source: "https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg",
     alt: "Tianmen Cave, Tianmen Mountain — where the Tianmen Fox Fairy show is staged",
   },
+  tianmenCave2: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianmen_Mountain_38268-Zhangjiajie_(48757241953).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:Tianmen_Mountain_38268-Zhangjiajie_(48757241953).jpg",
+    alt: "Tianmen Mountain, Zhangjiajie",
+  },
+  tianmenCave3: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianmen_Mountain_38303-Zhangjiajie_(48757565201).jpg?width=1400",
+    credit: "xiquinhosilva",
+    license: "CC BY 2.0",
+    source: "https://commons.wikimedia.org/wiki/File:Tianmen_Mountain_38303-Zhangjiajie_(48757565201).jpg",
+    alt: "Tianmen Mountain cable car route, Zhangjiajie",
+  },
   wulingyuan: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg?width=1400",
     credit: "Chensiyuan",
     license: "CC BY-SA 4.0",
     source: "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
     alt: "Panoramic view over the Wulingyuan Scenic Area from Tianzi Mountain",
+  },
+  wulingyuan2: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/1_zhangjiajie_huangshizhai_wulingyuan_panorama_2012.jpg?width=1400",
+    credit: "Chensiyuan",
+    license: "CC BY-SA 4.0",
+    source:
+      "https://commons.wikimedia.org/wiki/File:1_zhangjiajie_huangshizhai_wulingyuan_panorama_2012.jpg",
+    alt: "Five Fingers Peak, Huangshizhai, Wulingyuan Scenic Area",
+  },
+  seasonMisty: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie_(223137313).jpeg?width=1400",
+    credit: "Hanlu Cao",
+    license: "CC BY-SA 3.0",
+    source: "https://commons.wikimedia.org/wiki/File:Zhangjiajie_(223137313).jpeg",
+    alt: "Mist and rain over the forested peaks of Zhangjiajie",
   },
 };
 
@@ -112,19 +157,19 @@ const content = {
       items: [
         {
           icon: Mountain,
-          photo: PHOTOS.pillars,
+          gallery: [PHOTOS.pillars, PHOTOS.pillars2, PHOTOS.pillars3],
           title: "Pillars Found Nowhere Else",
           body: "Thousands of quartz-sandstone pillars rise from the forest floor — a landform so singular that one of them was officially renamed Avatar Hallelujah Mountain after inspiring the floating peaks of Pandora.",
         },
         {
           icon: DoorOpen,
-          photo: PHOTOS.tianmenCave,
+          gallery: [PHOTOS.tianmenCave, PHOTOS.tianmenCave2, PHOTOS.tianmenCave3],
           title: "A Door Carved by the Mountain Itself",
           body: "Tianmen Cave, the world's highest natural archway, is said to have opened in a single moment in 263 AD, when a section of the cliff face collapsed — a threshold locals still call the gate between worlds. After dark, the same legend takes the stage at its foot, in the open-air Tianmen Fox Fairy performance.",
         },
         {
           icon: Landmark,
-          photo: PHOTOS.wulingyuan,
+          gallery: [PHOTOS.wulingyuan, PHOTOS.wulingyuan2],
           title: "A UNESCO World Heritage Landscape",
           body: "The Wulingyuan Scenic Area, encompassing Zhangjiajie National Forest Park, has been protected as a World Heritage Site since 1992 — one of the rarest karst-and-quartzite landscapes on Earth.",
         },
@@ -138,6 +183,7 @@ const content = {
       seasons: [
         {
           icon: Flower2,
+          photo: { src: IMG_PEAKS, alt: "Zhangjiajie peaks in spring light" },
           label: "Spring",
           months: "March – May",
           tag: "Great for Photography",
@@ -145,6 +191,7 @@ const content = {
         },
         {
           icon: CloudRain,
+          photo: PHOTOS.seasonMisty,
           label: "Summer",
           months: "June – August",
           tag: "Rainy Season",
@@ -152,6 +199,7 @@ const content = {
         },
         {
           icon: Leaf,
+          photo: { src: IMG_CLIFF, alt: "Zhangjiajie canyon in autumn" },
           label: "Autumn",
           months: "September – November",
           tag: "Best Overall",
@@ -159,6 +207,7 @@ const content = {
         },
         {
           icon: Snowflake,
+          photo: { src: IMG_VALLEY, alt: "Zhangjiajie valley in winter" },
           label: "Winter",
           months: "December – February",
           tag: "Quiet Season",
@@ -342,19 +391,19 @@ const content = {
       items: [
         {
           icon: Mountain,
-          photo: PHOTOS.pillars,
+          gallery: [PHOTOS.pillars, PHOTOS.pillars2, PHOTOS.pillars3],
           title: "Pilastri che Non Esistono Altrove",
           body: "Migliaia di pilastri di arenaria quarzifera si ergono dal terreno forestale — una conformazione così unica che uno di essi è stato ufficialmente ribattezzato Avatar Hallelujah Mountain, dopo aver ispirato le montagne fluttuanti di Pandora.",
         },
         {
           icon: DoorOpen,
-          photo: PHOTOS.tianmenCave,
+          gallery: [PHOTOS.tianmenCave, PHOTOS.tianmenCave2, PHOTOS.tianmenCave3],
           title: "Una Porta Scavata dalla Montagna Stessa",
           body: "La Grotta di Tianmen, il più alto arco naturale al mondo, si dice si sia aperta in un solo istante nel 263 d.C., quando una porzione della parete rocciosa crollò — una soglia che i locali chiamano ancora la porta tra i mondi. Dopo il tramonto, la stessa leggenda prende vita ai suoi piedi, nello spettacolo all'aperto Tianmen Fox Fairy.",
         },
         {
           icon: Landmark,
-          photo: PHOTOS.wulingyuan,
+          gallery: [PHOTOS.wulingyuan, PHOTOS.wulingyuan2],
           title: "Un Paesaggio Patrimonio dell'UNESCO",
           body: "L'area panoramica di Wulingyuan, che comprende il Parco Forestale Nazionale di Zhangjiajie, è protetta come Patrimonio dell'Umanità dal 1992 — uno dei paesaggi di arenaria quarzifera più rari al mondo.",
         },
@@ -368,6 +417,7 @@ const content = {
       seasons: [
         {
           icon: Flower2,
+          photo: { src: IMG_PEAKS, alt: "Le vette di Zhangjiajie in primavera" },
           label: "Primavera",
           months: "Marzo – Maggio",
           tag: "Ideale per Fotografia",
@@ -375,6 +425,7 @@ const content = {
         },
         {
           icon: CloudRain,
+          photo: PHOTOS.seasonMisty,
           label: "Estate",
           months: "Giugno – Agosto",
           tag: "Stagione delle Piogge",
@@ -382,6 +433,7 @@ const content = {
         },
         {
           icon: Leaf,
+          photo: { src: IMG_CLIFF, alt: "Il canyon di Zhangjiajie in autunno" },
           label: "Autunno",
           months: "Settembre – Novembre",
           tag: "Il Migliore in Assoluto",
@@ -389,6 +441,7 @@ const content = {
         },
         {
           icon: Snowflake,
+          photo: { src: IMG_VALLEY, alt: "La valle di Zhangjiajie in inverno" },
           label: "Inverno",
           months: "Dicembre – Febbraio",
           tag: "Stagione Tranquilla",
@@ -570,19 +623,19 @@ const content = {
       items: [
         {
           icon: Mountain,
-          photo: PHOTOS.pillars,
+          gallery: [PHOTOS.pillars, PHOTOS.pillars2, PHOTOS.pillars3],
           title: "绝无仅有的峰林",
           body: "数千座石英砂岩峰柱拔地而起——如此独特的地貌，其中一座更因启发了《阿凡达》潘多拉星球的悬浮山，而被正式更名为「阿凡达·哈利路亚山」。",
         },
         {
           icon: DoorOpen,
-          photo: PHOTOS.tianmenCave,
+          gallery: [PHOTOS.tianmenCave, PHOTOS.tianmenCave2, PHOTOS.tianmenCave3],
           title: "山体自行开凿的门",
           body: "天门洞是世界上已知海拔最高的天然穿山溶洞，相传于公元263年山体崩裂的瞬间豁然洞开——当地人至今仍称它为通往异界的门。入夜后，同一个传说会在洞前的《天门狐仙》实景演出中重新上演。",
         },
         {
           icon: Landmark,
-          photo: PHOTOS.wulingyuan,
+          gallery: [PHOTOS.wulingyuan, PHOTOS.wulingyuan2],
           title: "世界自然遗产地貌",
           body: "武陵源风景名胜区（含张家界国家森林公园）自1992年起被列入世界自然遗产名录——是地球上最稀有的石英砂岩峰林地貌之一。",
         },
@@ -595,6 +648,7 @@ const content = {
       seasons: [
         {
           icon: Flower2,
+          photo: { src: IMG_PEAKS, alt: "春日光线下的张家界山峰" },
           label: "春季",
           months: "3月 – 5月",
           tag: "拍照绝佳",
@@ -602,6 +656,7 @@ const content = {
         },
         {
           icon: CloudRain,
+          photo: PHOTOS.seasonMisty,
           label: "夏季",
           months: "6月 – 8月",
           tag: "雨季",
@@ -609,6 +664,7 @@ const content = {
         },
         {
           icon: Leaf,
+          photo: { src: IMG_CLIFF, alt: "秋日的张家界峡谷" },
           label: "秋季",
           months: "9月 – 11月",
           tag: "全年首选",
@@ -616,6 +672,7 @@ const content = {
         },
         {
           icon: Snowflake,
+          photo: { src: IMG_VALLEY, alt: "冬日的张家界山谷" },
           label: "冬季",
           months: "12月 – 2月",
           tag: "静谧时节",
@@ -1073,12 +1130,13 @@ function Hero() {
 // ---------------------------------------------------------------------------
 // Attributed photo — real Wikimedia Commons photography with a credit caption
 // ---------------------------------------------------------------------------
-function AttributedPhoto({ photo, title, className = "" }) {
+function AttributedPhoto({ gallery, title, className = "" }) {
   const { open } = useLightbox();
+  const photo = gallery[0];
   return (
     <div
       className={`relative aspect-[4/3] overflow-hidden bg-stone-900 cursor-pointer ${className}`}
-      onClick={() => open([photo], title)}
+      onClick={() => open(gallery, title)}
     >
       <img
         src={photo.src}
@@ -1087,15 +1145,22 @@ function AttributedPhoto({ photo, title, className = "" }) {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <ExpandHint />
-      <a
-        href={photo.source}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => e.stopPropagation()}
-        className="absolute bottom-1.5 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors"
-      >
-        © {photo.credit} · {photo.license}
-      </a>
+      {gallery.length > 1 && (
+        <span className="absolute top-2 left-2 text-[10px] text-white/80 bg-black/40 px-2 py-0.5 rounded-full uppercase tracking-wider">
+          {gallery.length} photos
+        </span>
+      )}
+      {photo.credit && (
+        <a
+          href={photo.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute bottom-1.5 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors"
+        >
+          © {photo.credit} · {photo.license}
+        </a>
+      )}
     </div>
   );
 }
@@ -1162,9 +1227,9 @@ function WhyZhangjiajie() {
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
       >
-        {t.whyZhangjiajie.items.map(({ icon: Icon, photo, title, body }, i) => (
+        {t.whyZhangjiajie.items.map(({ icon: Icon, gallery, title, body }, i) => (
           <motion.div key={i} variants={fadeUp}>
-            <AttributedPhoto photo={photo} title={title} className="mb-6" />
+            <AttributedPhoto gallery={gallery} title={title} className="mb-6" />
             <div className="px-2">
               <Icon className="mb-4 text-[#C5A059]" size={26} strokeWidth={1.2} />
               <h3
@@ -1228,8 +1293,9 @@ function BestTimeToVisit() {
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
       >
-        {t.bestTimeToVisit.seasons.map(({ icon: Icon, label, months, tag, body }, i) => (
+        {t.bestTimeToVisit.seasons.map(({ icon: Icon, photo, label, months, tag, body }, i) => (
           <motion.div key={i} variants={fadeUp} className="text-center px-2">
+            <AttributedPhoto gallery={[photo]} title={label} className="mb-5" />
             <Icon className="mx-auto mb-5 text-[#C5A059]" size={30} strokeWidth={1.2} />
             <h3
               className="text-[#111111] text-lg mb-1"
