@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronDown,
-  Compass,
+  Route,
   Clock,
-  MapPinOff,
+  UserCheck,
   Car,
   Users,
   Hotel,
@@ -261,12 +261,12 @@ const content = {
     },
     signature: {
       eyebrow: "Why Book With Us",
-      heading: "What Makes This Journey Different",
+      heading: "No Middleman Between You and Zhangjiajie",
       items: [
         {
-          icon: Compass,
-          title: "Native-Born Guide",
-          body: "Not a licensed tour guide — a lifelong resident who has spent decades exploring beyond the marked trails.",
+          icon: Route,
+          title: "Direct to Zhangjiajie",
+          body: "You're booking directly with the team that runs your trip on the ground in Zhangjiajie — not a European agency that resells to a local partner. No relay, no markup, no itinerary lost in translation.",
         },
         {
           icon: Clock,
@@ -274,9 +274,9 @@ const content = {
           body: "Every route timed around light, weather, and crowd patterns known only through years of local observation.",
         },
         {
-          icon: MapPinOff,
-          title: "Off the Map",
-          body: "A full day's trail that exists in no app, no guidebook, and no other itinerary.",
+          icon: UserCheck,
+          title: "One Team, Start to Finish",
+          body: "The people who answer your first message are the same people arranging your guide, driver, and hotel — nothing gets handed off along the way.",
         },
       ],
     },
@@ -495,12 +495,12 @@ const content = {
     },
     signature: {
       eyebrow: "Perché Prenotare con Noi",
-      heading: "Cosa Rende Unico Questo Viaggio",
+      heading: "Nessun Intermediario tra Voi e Zhangjiajie",
       items: [
         {
-          icon: Compass,
-          title: "Guida Nativa",
-          body: "Non una guida turistica qualsiasi — un residente che da decenni esplora oltre i sentieri segnati.",
+          icon: Route,
+          title: "Direttamente a Zhangjiajie",
+          body: "State prenotando direttamente con il team che gestisce il vostro viaggio sul posto a Zhangjiajie — non un'agenzia europea che rivende a un partner locale. Nessun passaggio intermedio, nessun sovrapprezzo, nessun itinerario perso nella traduzione.",
         },
         {
           icon: Clock,
@@ -508,9 +508,9 @@ const content = {
           body: "Ogni percorso calibrato su luce, meteo e flussi turistici, conosciuti solo dopo anni di osservazione locale.",
         },
         {
-          icon: MapPinOff,
-          title: "Fuori dalla Mappa",
-          body: "Un'intera giornata su un sentiero che non esiste in nessuna app, guida o altro itinerario.",
+          icon: UserCheck,
+          title: "Un Solo Team, dall'Inizio alla Fine",
+          body: "Le persone che rispondono al vostro primo messaggio sono le stesse che organizzano la vostra guida, l'autista e l'hotel — nulla viene passato di mano in mano lungo il percorso.",
         },
       ],
     },
@@ -726,12 +726,12 @@ const content = {
     },
     signature: {
       eyebrow: "为什么选择我们",
-      heading: "这场旅程为何与众不同",
+      heading: "您和张家界之间，没有中间商",
       items: [
         {
-          icon: Compass,
-          title: "本地土生向导",
-          body: "并非持证导游——而是一位在此山中生活数十年、走遍未标记山径的当地居民。",
+          icon: Route,
+          title: "直连张家界，没有中间商",
+          body: "您现在联系的，就是实际在张家界为您安排行程的团队——不是把您的需求转包给地接社的欧洲旅行社。少一层转包，少一层信息失真，也少一层加价。",
         },
         {
           icon: Clock,
@@ -739,9 +739,9 @@ const content = {
           body: "每一条路线的时间安排，都基于多年本地观察积累的光线、天气与人流规律。",
         },
         {
-          icon: MapPinOff,
-          title: "地图之外",
-          body: "整整一日的行程，不存在于任何应用程序、旅行指南，或其他行程单中。",
+          icon: UserCheck,
+          title: "从咨询到落地，同一个团队",
+          body: "回复您咨询的人，和安排向导、司机、酒店的人是同一拨人——不会在中途被转手。",
         },
       ],
     },
