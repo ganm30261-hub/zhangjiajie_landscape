@@ -392,8 +392,10 @@ const content = {
         message: "Message",
       },
       submit: "Submit Enquiry",
+      submitting: "Sending…",
       successTitle: "Thank You",
       successBody: "Your enquiry has been received. We will be in touch shortly.",
+      errorBody: "Something went wrong sending your enquiry. Please try again, or email us directly at yalinggan911@gmail.com.",
     },
     footer: {
       operator: "Operated by BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司)",
@@ -642,8 +644,10 @@ const content = {
         message: "Messaggio",
       },
       submit: "Invia Richiesta",
+      submitting: "Invio in corso…",
       successTitle: "Grazie",
       successBody: "La vostra richiesta è stata ricevuta. Vi contatteremo a breve.",
+      errorBody: "Si è verificato un errore nell'invio della richiesta. Riprovate, oppure scriveteci direttamente a yalinggan911@gmail.com.",
     },
     footer: {
       operator: "Gestito da BabyDuck Travel Co., Ltd. (贝贝鸭可爱旅游有限公司)",
@@ -889,8 +893,10 @@ const content = {
         message: "留言",
       },
       submit: "提交咨询",
+      submitting: "发送中…",
       successTitle: "感谢您的咨询",
       successBody: "我们已收到您的咨询，将尽快与您联系。",
+      errorBody: "提交咨询时出现问题，请重试，或直接发邮件到 yalinggan911@gmail.com 联系我们。",
     },
     footer: {
       operator: "运营主体：贝贝鸭可爱旅游有限公司（BabyDuck Travel Co., Ltd.）",
@@ -1933,16 +1939,36 @@ function EnquirySection() {
     dates: "",
     travelers: "",
     message: "",
+    website: "", // honeypot — real visitors never see or fill this
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError("");
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Failed to send enquiry.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(t.enquiry.errorBody);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -1978,6 +2004,16 @@ function EnquirySection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            <input
+              type="text"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] w-px h-px opacity-0"
+            />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-stone-500 text-xs uppercase tracking-wider mb-2">
@@ -2044,12 +2080,14 @@ function EnquirySection() {
                 className="w-full bg-transparent border-b border-stone-300 py-3 text-[#111111] focus:outline-none focus:border-[#C5A059] transition-colors resize-none"
               />
             </div>
+            {error && <p className="text-center text-red-600 text-sm">{error}</p>}
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="bg-[#C5A059] text-black text-sm tracking-[0.15em] uppercase px-10 py-4 hover:bg-[#b6924c] transition-colors duration-300"
+                disabled={submitting}
+                className="bg-[#C5A059] text-black text-sm tracking-[0.15em] uppercase px-10 py-4 hover:bg-[#b6924c] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
               >
-                {t.enquiry.submit}
+                {submitting ? t.enquiry.submitting : t.enquiry.submit}
               </button>
             </div>
           </form>
